@@ -191,7 +191,7 @@ class _sign_inState extends State<sign_in> {
                         }
                         else {
                           print('sign in successful');
-                          print(result);
+                          print(result.uid);
                         }
                       }
                     ),
