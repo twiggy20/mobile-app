@@ -2,13 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
 
-class create_class extends StatefulWidget {
-  static const String id = "create_class";
+
+class Enter_class extends StatefulWidget {
+  static const String id = "Enter_class";
+
   @override
-  _create_classState createState() => _create_classState();
+  _Enter_classState createState() => _Enter_classState();
 }
 
-class _create_classState extends State<create_class> {
+class _Enter_classState extends State<Enter_class> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +23,7 @@ class _create_classState extends State<create_class> {
                 height: 50,
                 margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
                 padding: EdgeInsets.fromLTRB(0, 15, 10, 0),
-                child:Text('Create class',
+                child:Text('Go to class',
                     textAlign: TextAlign.center,
                     style: TextStyle(color: Color(0xFF002255),
                         fontSize: 30,

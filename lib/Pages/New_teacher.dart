@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_teacher_app/Pages/Status.dart';
+import 'package:mobile_teacher_app/Pages/Enter_class.dart';
+import 'package:mobile_teacher_app/Pages/Join_Class.dart';
+import 'package:mobile_teacher_app/Pages/Create_Class.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
 
 class New_teacher extends StatelessWidget {
@@ -13,10 +15,11 @@ class New_teacher extends StatelessWidget {
         body: SafeArea(
             child: Column(
               children: [
+                SizedBox(height:50),
                 Container(
                   width: SizeConfig.screenWidth,
-                  height: 70,
-                  margin: EdgeInsets.fromLTRB(0, 40, 10, 10),
+                  height: 60,
+                  margin: EdgeInsets.fromLTRB(0, 0, 10, 10),
                   padding: EdgeInsets.fromLTRB(0, 15, 10, 10),
                   child:Text('Welcome',
                       textAlign: TextAlign.center,
@@ -26,55 +29,54 @@ class New_teacher extends StatelessWidget {
 
                 ),
 
-                SizedBox(height:60),
-                SingleChildScrollView(
-                  child:InkWell(
+                SizedBox(height:30),
+                InkWell(
                     onTap: (){
-                     // Navigator.pushNamed(context,home.id);
+                     Navigator.pushNamed(context,create_class.id);
                     },
-                    child:ConstrainedBox(
-                      constraints: BoxConstraints.tightFor(width: 280),
-                      child: TextFormField(
-                        decoration:InputDecoration(
-                          hintText:'Start a new class',
-                          hintStyle: TextStyle(color: Colors.white,  fontSize: 15,
-                              fontWeight: FontWeight.normal),
-                          fillColor:  Colors.greenAccent,
-                          // filled: true,
-                          enabledBorder:OutlineInputBorder(
-                              borderSide:BorderSide(color:Colors.grey, )
-                          ),
-                          focusedBorder:OutlineInputBorder(
-                              borderSide:BorderSide(color:Colors.black, width:2)
-                          ),
-                        ),
-                      ),
+                    child:Container(
+                        width: 280,
+                        height: 60,
+                        margin: EdgeInsets.fromLTRB(5, 10, 5,20),
+                        padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
+                        child:Text('Start a new class',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold  )),
+                        decoration: BoxDecoration(
+                            color: Colors.greenAccent,
+                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                            border: Border.all(
+                                color: Colors.greenAccent,
+                                width: 2
+                            ))
                     ),
                   ),
-                ),
-                SizedBox(height:80),
+
+                SizedBox(height:40),
                 InkWell(
                   onTap: (){
-                    // Navigator.pushNamed(context,home.id);
+                     Navigator.pushNamed(context,Join_class.id);
                   },
-                  child:ConstrainedBox(
-                    constraints: BoxConstraints.tightFor(width: 280),
-                    child: TextFormField(
-                      decoration:InputDecoration(
-                        hintText:'Use existing class',
-                        hintStyle: TextStyle(color: Colors.white,  fontSize: 15,
-                            fontWeight: FontWeight.normal),
-                        fillColor:  Colors.yellow,
-                        // filled: true,
-                        enabledBorder:OutlineInputBorder(
-                            borderSide:BorderSide(color:Colors.grey, )
-                        ),
-                        focusedBorder:OutlineInputBorder(
-                            borderSide:BorderSide(color:Colors.black, width:2)
-                        ),
-                      ),
-                    ),
-                  ),
+                  child:Container(
+                    width: 280,
+                    height: 60,
+                    margin: EdgeInsets.fromLTRB(5, 10, 5,20),
+                    padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
+                    child:Text('Use an existing class',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold  )),
+                    decoration: BoxDecoration(
+                        color: Colors.yellow,
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        border: Border.all(
+                            color: Colors.yellow,
+                            width: 2
+                        ))
+                ),
                 ),
               ],
             )

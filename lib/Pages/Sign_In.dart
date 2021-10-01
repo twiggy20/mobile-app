@@ -34,7 +34,7 @@ class _sign_inState extends State<sign_in> {
                 padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
                 child:Text('Sign up?',
                     textAlign: TextAlign.end,
-                    style: TextStyle(color: Colors.indigo.shade900,
+                    style: TextStyle(color: Color(0xFF002255),
                         fontSize: 20,
                         fontWeight: FontWeight.bold  )),
                 decoration: BoxDecoration(

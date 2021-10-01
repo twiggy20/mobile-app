@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_teacher_app/Pages/Classroom.dart';
+import 'package:mobile_teacher_app/utils/size_config.dart';
+
 class Join_class extends StatefulWidget {
-  //const Join_class({Key? key}) : super(key: key);
+  static const String id = "Join_class";
 
   @override
   _Join_classState createState() => _Join_classState();
@@ -13,176 +16,139 @@ class _Join_classState extends State<Join_class> {
     return Scaffold(
      body: Column(
         children: [
+          SizedBox(height:50),
           Container(
-              width: 250,
-              height: 35,
-              margin: EdgeInsets.fromLTRB(20.0, 20.0, 0.0, 10.0),
-              padding: EdgeInsets.fromLTRB(0.0, 00.0, 0.0, 0.0),
-              child: Text('Add new student',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(color: Colors.black,
-                      fontSize: 25,
-                      fontWeight: FontWeight.w400  )),
-              decoration: BoxDecoration(
-                  color: Colors.white30,
-                  borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(10.0),
-                      topLeft: Radius.circular(10.0),
-                      bottomRight: Radius.circular(10.0),
-                      bottomLeft: Radius.circular(10.0)),
-                  border: Border.all(
-                      color: Colors.white,
-                      width: 2
-                  ))
+            width: SizeConfig.screenWidth,
+            height: 50,
+            margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+            padding: EdgeInsets.fromLTRB(0, 15, 10, 0),
+            child:Text('Go to class',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Color(0xFF002255),
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold  )),
+
           ),
-          Row(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  width: 100,
-                  height: 22,
-                  margin: EdgeInsets.fromLTRB(5, 15, 0, 0),
+                  width: SizeConfig.screenWidth,
+                  height: 25,
+                  margin: EdgeInsets.fromLTRB(15, 0, 10, 0),
                   padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child:Text('Class Name',
+                  child:Text('Class name',
                       textAlign: TextAlign.left,
                       style: TextStyle(color: Colors.black,
                           fontSize: 20,
-                          fontWeight: FontWeight.w500  )),
+                          fontWeight: FontWeight.w400  )),
                   decoration: BoxDecoration(
                       color: Colors.white30,
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(10.0),
-                          topLeft: Radius.circular(10.0),
-                          bottomRight: Radius.circular(10.0),
-                          bottomLeft: Radius.circular(10.0)),
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
                       border: Border.all(
                           color: Colors.white,
                           width: 2
                       ))
               ),
+
               Container(
-                  width: 210,
+                  width: 280,
                   height: 50,
-                  margin: EdgeInsets.fromLTRB(0,0, 5, 10),
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child:Text('Input class name',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w200  )),
+                  margin: EdgeInsets.fromLTRB(10,0, 5, 10),
+                  child: TextFormField(
+                    decoration:InputDecoration(
+                      hintText:'Input class name/title',
+                      hintStyle: TextStyle(color: Colors.grey,  fontSize: 20,
+                          fontWeight: FontWeight.normal),
+                      fillColor:  Colors.grey,
+                      // filled: true,
+                      enabledBorder:OutlineInputBorder(
+                          borderSide:BorderSide(color:Colors.grey, )
+                      ),
+                      focusedBorder:OutlineInputBorder(
+                          borderSide:BorderSide(color:Colors.black, width:2)
+                      ),
+                    ),
+                  ),
                   decoration: BoxDecoration(
-                      color: Colors.white30,
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(10.0),
-                          topLeft: Radius.circular(10.0),
-                          bottomRight: Radius.circular(10.0),
-                          bottomLeft: Radius.circular(10.0)),
-                      border: Border.all(
-                          color: Colors.grey[400],
-                          width: 2
-                      ))
+                    color: Colors.white30,
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  )
               ),
             ],
           ),
-          Row(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  width: 100,
-                  height: 22,
-                  margin: EdgeInsets.fromLTRB(5, 15, 0, 0),
+                  width: SizeConfig.screenWidth,
+                  height: 25,
+                  margin: EdgeInsets.fromLTRB(15, 0, 10, 0),
                   padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child:Text('Password',
+                  child:Text('Class code',
                       textAlign: TextAlign.left,
                       style: TextStyle(color: Colors.black,
                           fontSize: 20,
-                          fontWeight: FontWeight.w500  )),
+                          fontWeight: FontWeight.w400  )),
                   decoration: BoxDecoration(
                       color: Colors.white30,
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(10.0),
-                          topLeft: Radius.circular(10.0),
-                          bottomRight: Radius.circular(10.0),
-                          bottomLeft: Radius.circular(10.0)),
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
                       border: Border.all(
                           color: Colors.white,
                           width: 2
                       ))
               ),
+
               Container(
-                  width: 210,
+                  width: 280,
                   height: 50,
-                  margin: EdgeInsets.fromLTRB(0,0, 5, 10),
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child:Text('Input password',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w200  )),
+                  margin: EdgeInsets.fromLTRB(10,0, 5, 10),
+                  child: TextFormField(
+                    decoration:InputDecoration(
+                      hintText:'Create a class code',
+                      hintStyle: TextStyle(color: Colors.grey,  fontSize: 20,
+                          fontWeight: FontWeight.normal),
+                      fillColor:  Colors.grey,
+                      // filled: true,
+                      enabledBorder:OutlineInputBorder(
+                          borderSide:BorderSide(color:Colors.grey, )
+                      ),
+                      focusedBorder:OutlineInputBorder(
+                          borderSide:BorderSide(color:Colors.black, width:2)
+                      ),
+                    ),
+                  ),
                   decoration: BoxDecoration(
-                      color: Colors.white30,
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(10.0),
-                          topLeft: Radius.circular(10.0),
-                          bottomRight: Radius.circular(10.0),
-                          bottomLeft: Radius.circular(10.0)),
-                      border: Border.all(
-                          color: Colors.grey[400],
-                          width: 2
-                      ))
+                    color: Colors.white30,
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  )
               ),
             ],
           ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Container(
-                    width: 110,
-                    height: 30,
-                    margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                    padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child:Text('Create class?',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(color:  Color(0xFF002255),
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500  )),
-                    decoration: BoxDecoration(
-                        color: Colors.white30,
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(10.0),
-                            topLeft: Radius.circular(10.0),
-                            bottomRight: Radius.circular(10.0),
-                            bottomLeft: Radius.circular(10.0)),
-                        border: Border.all(
-                            color: Colors.white,
-                            width: 2
-                        ))
-                ),
-                Container(
+            InkWell(
+              onTap: (){
+                Navigator.pushNamed(context,classroom.id);
+              },
+              child:  Container(
                     width: 260,
                     height: 50,
                     margin: EdgeInsets.fromLTRB(15,10, 5, 30),
                     padding: EdgeInsets.fromLTRB(8, 10, 10, 0),
                     child:Text('Join class',
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white,
+                        style: TextStyle(color: Colors.black,
                             fontSize: 20,
                             fontWeight: FontWeight.w700  )),
                     decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(10.0),
-                            topLeft: Radius.circular(10.0),
-                            bottomRight: Radius.circular(10.0),
-                            bottomLeft: Radius.circular(10.0)),
+                        color: Colors.yellow,
+                        borderRadius: BorderRadius.all(Radius.circular(10.0),),
                         border: Border.all(
-                            color: Colors.black,
+                            color: Colors.yellow,
                             width: 2
                         ))
                 ),
+            ),
             ],
-          )
-        ],
       )
 
     );

@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_teacher_app/utils/size_config.dart';
+
 class classroom extends StatefulWidget {
+  static const String id = "classroom ";
 
   @override
   _classroomState createState() => _classroomState();
@@ -21,310 +24,85 @@ class _classroomState extends State<classroom> {
           elevation: 0,
         ),
         body:Column(
-           crossAxisAlignment: CrossAxisAlignment.end,
+          // crossAxisAlignment: CrossAxisAlignment.end,
           // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                  children:[
-                    Column(
-                        children:[
-                          Row(
-                            children: [
-                              Text('Student',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(color: Color(0xFF726E18),
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold  )),
-                              Text('   8',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(color: Color(0xFFD81846),
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold  )),
-                            ],
-                          ),
-
-                          Container(
-                            width: 156,
-                            height: 5,
-                            margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                            decoration: BoxDecoration(
-                                color:  Color(0xFF726E18),
-
-                                border: Border.all(
-                                    color: Color(0xFF726E18),
-                                    width: 2
-                                )),
-                          )
-                        ]
-                    ),
-                    Column(
-                        children:[
-                          Text('Lesson',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(color: Color(0xFF27722F),
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold  )),
-                          Container(
-                            width: 156,
-                            height: 5,
-                            margin: EdgeInsets.fromLTRB(3, 0, 0, 10),
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                            decoration: BoxDecoration(
-                                color: Color(0xFFC4C4C4),
-
-                                border: Border.all(
-                                    color: Color(0xFFC4C4C4),
-                                    width: 2
-                                )),
-                          )
-                        ]
-                    )
-                  ]
-              ),
-              Row(
                 children: [
-                  Column(
-                    children: [
-                      Container(
-                          width: 60,
-                          height: 50,
-                          margin: EdgeInsets.fromLTRB(10.0, 5.0, 0.0, 10.0),
-                          padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 10.0),
-                          child: FittedBox(
-                              fit: BoxFit.cover,
-                              child: ImageIcon(AssetImage("Assets/school girl.png"), color: Colors.indigo.shade900,)),
-                      ),
-                      Text('Name',
+                  Expanded(
+                    child: Container(
+                      width: SizeConfig.screenWidth,
+                      height: 25,
+                      //padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                      child:Text('Student',
                           textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.black,
+                          style: TextStyle(color: Colors.yellow,
                               fontSize: 20,
                               fontWeight: FontWeight.bold  )),
-
-                    ],
+                    ),
                   ),
-                  Column(
-                    children: [
-                      Container(
-                          width: 60,
-                          height: 50,
-                          margin: EdgeInsets.fromLTRB(20.0, 5.0, 0.0, 10.0),
-                          padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 10.0),
-
-                          decoration: BoxDecoration(
-                              color: Colors.grey[400],
-                              borderRadius:BorderRadius.all(Radius.circular(50)),
-
-
-                              border: Border.all(
-                                  color: Colors.grey[400],
-                                  width: 2
-                              ))
-                      ),
-                      Text('Name',
+                  SizedBox(width: 7,),
+                  Expanded(
+                    child: Container(
+                      width: SizeConfig.screenWidth,
+                      height: 25,
+                      child:Text('Lesson',
                           textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.indigo,
+                          style: TextStyle(color: Colors.greenAccent,
                               fontSize: 20,
                               fontWeight: FontWeight.bold  )),
-
-                    ],
+                    ),
                   ),
-                  Column(
-                    children: [
-                      Container(
-                          width: 60,
-                          height: 50,
-                          margin: EdgeInsets.fromLTRB(20.0, 5.0, 0.0, 10.0),
-                          padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 10.0),
-
-                          decoration: BoxDecoration(
-                              color: Colors.grey[400],
-                              borderRadius:BorderRadius.all(Radius.circular(50)),
-
-
-                              border: Border.all(
-                                  color: Colors.grey[400],
-                                  width: 2
-                              ))
-                      ),
-                      Text('Name',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.indigo.shade900,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold  )),
-
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                          width: 60,
-                          height: 50,
-                          margin: EdgeInsets.fromLTRB(20.0, 5.0, 0.0, 10.0),
-                          padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 10.0),
-
-                          decoration: BoxDecoration(
-                              color: Colors.grey[400],
-                              borderRadius:BorderRadius.all(Radius.circular(50)),
-
-
-                              border: Border.all(
-                                  color: Colors.grey[400],
-                                  width: 2
-                              ))
-                      ),
-                      Text('Name',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.indigo.shade900,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold  )),
-
-                    ],
-                  )
-
-
                 ],
               ),
               Row(
                 children: [
-                  Column(
-                    children: [
-                      Container(
-                          width: 60,
-                          height: 50,
-                          margin: EdgeInsets.fromLTRB(10.0, 20.0, 0.0, 10.0),
-                          padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 10.0),
+                  Expanded(
+                    child: Container(
+                      width: SizeConfig.screenWidth,
+                      height: 4,
+                      //padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                      decoration: BoxDecoration(
+                          color: Colors.yellow,
+                          border: Border.all(
+                              color:Colors.yellow
 
-                          decoration: BoxDecoration(
-                              color: Colors.grey[400],
-                              borderRadius:BorderRadius.all(Radius.circular(50)),
-
-
-                              border: Border.all(
-                                  color: Colors.grey[400],
-                                  width: 2
-                              ))
+                          )
                       ),
-                      Text('Name',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.indigo.shade900,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold  )),
-
-                    ],
+                    ),
                   ),
-                  Column(
-                    children: [
-                      Container(
-                          width: 60,
-                          height: 50,
-                          margin: EdgeInsets.fromLTRB(20.0, 20.0, 0.0, 10.0),
-                          padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 10.0),
+                  SizedBox(width: 7,),
+                  Expanded(
+                    child: Container(
+                      width: SizeConfig.screenWidth,
+                      height: 4,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          border: Border.all(
+                              color:Colors.grey
 
-                          decoration: BoxDecoration(
-                              color: Colors.grey[400],
-                              borderRadius:BorderRadius.all(Radius.circular(50)),
-
-
-                              border: Border.all(
-                                  color: Colors.grey[400],
-                                  width: 2
-                              ))
+                          )
                       ),
-                      Text('Name',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.indigo.shade900,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold  )),
-
-                    ],
+                    ),
                   ),
-                  Column(
-                    children: [
-                      Container(
-                          width: 60,
-                          height: 50,
-                          margin: EdgeInsets.fromLTRB(20.0, 20.0, 0.0, 10.0),
-                          padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 10.0),
-
-                          decoration: BoxDecoration(
-                              color: Colors.grey[400],
-                              borderRadius:BorderRadius.all(Radius.circular(50)),
-
-
-                              border: Border.all(
-                                  color: Colors.grey[400],
-                                  width: 2
-                              ))
-                      ),
-                      Text('Name',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.indigo.shade900,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold  )),
-
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                          width: 60,
-                          height: 50,
-                          margin: EdgeInsets.fromLTRB(20.0, 20.0, 0.0, 10.0),
-                          padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 10.0),
-
-                          decoration: BoxDecoration(
-                              color: Colors.grey[400],
-                               borderRadius:BorderRadius.all(Radius.circular(50)),
-
-                              border: Border.all(
-                                  color: Colors.grey[400],
-                                  width: 2
-                              ))
-                      ),
-                      Text('Name',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.indigo.shade900,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold  )),
-                    ],
-                  ),
-
                 ],
               ),
               Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children:[
-                    Column(
-                      // crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Container(
-                            height: 22,
-                            width: 22,
-                            margin: EdgeInsets.fromLTRB(0,5, 20, 0),
-                            padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
-                            child: FittedBox(
-                                fit: BoxFit.cover,
-                                child: ImageIcon(AssetImage("Assets/add_new.png"), color: Color(0xFF3D363C),)),
-                            color:Colors.white
-                          // color: Color(0xFF303D50),
-
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          width: SizeConfig.screenWidth,
+                          height: 4,
+                          child: Center(
+                           // child: Image.asset("assets/Female.png",width: 28.86,height: 37,fit: BoxFit.contain,),
+                          ),
                         ),
-                            Container(
-                            height: 15,
-                            width: 31,
-                            margin: EdgeInsets.fromLTRB(0,0, 20, 0),
-                            padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
-                            child: Text('New',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(color: Color(0xFF3D363C),
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold  )),
-
-                            )
-                      ],
-                    )
-                  ]
+                      ),
+                    ],
+                  )
+                ],
               )
             ]
         )
