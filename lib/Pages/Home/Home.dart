@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
-/*class home extends StatefulWidget {
-  //const home({Key? key}) : super(key: key);
-
+import 'package:mobile_teacher_app/Pages/Home/Home.dart' ;
+class home extends StatefulWidget {
+  static const String id = "home";
   @override
   _homeState createState() => _homeState();
 }
 
 class _homeState extends State<home> {
   @override
-  Widget build(BuildContext context) {*/
-class home extends StatelessWidget {
-//const home({Key? key}) : super(key: key);
+  Widget build(BuildContext context) {
 
-@override
-Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Welcome',

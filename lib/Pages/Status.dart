@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_teacher_app/Pages/Sign_In.dart';
+import 'package:mobile_teacher_app/Pages/Sign_Up.dart';
 class status extends StatefulWidget {
+  static const String id = "status";
   @override
   _statusState createState() => _statusState();
 }
-
 class _statusState extends State<status> {
   @override
   Widget build(BuildContext context) {
@@ -25,11 +27,7 @@ class _statusState extends State<status> {
                           fontWeight: FontWeight.bold  )),
                   decoration: BoxDecoration(
                       color: Colors.white30,
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(10.0),
-                          topLeft: Radius.circular(10.0),
-                          bottomRight: Radius.circular(10.0),
-                          bottomLeft: Radius.circular(10.0)),
+                      borderRadius: BorderRadius.all(Radius.circular(0.0)),
                       border: Border.all(
                           color: Colors.white,
                           width: 2
@@ -37,7 +35,7 @@ class _statusState extends State<status> {
               ),
               GestureDetector(
                 onTap: () {
-                  print("yes clicked");
+                  Navigator.pushNamed(context, sign_in.id);
                 },
                 child:Container(
                     width: 200,
@@ -65,7 +63,7 @@ class _statusState extends State<status> {
               ),
               GestureDetector(
                 onTap: () {
-                  print("No clicked");
+                  Navigator.pushNamed(context, sign_up.id);
                 },
                 child:Container(
                     width: 200,

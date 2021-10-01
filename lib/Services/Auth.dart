@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobile_teacher_app/models/User.dart';
-class Authservice{
+class AuthService{
   final FirebaseAuth _auth= FirebaseAuth.instance;
   //create user object based on firebaseuser
   User _userFromFirebaseUser(FirebaseUser user){
