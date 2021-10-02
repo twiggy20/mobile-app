@@ -16,219 +16,46 @@ class _sign_upState extends State<sign_up> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
             children:[
               SizedBox(height: 40),
-                Container(
-                    width:SizeConfig.screenWidth,
-                    height: 30,
-                    margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                    padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
-                    child:Text('Sign up',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.indigo.shade900,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold  )),
-                    decoration: BoxDecoration(
-                        color: Colors.white30,
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        border: Border.all(
-                          color: Colors.white,
-                        ))
-                ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
                 children: [
-                  Container(
-                      width: 90,
-                      height: 20,
-                      margin: EdgeInsets.fromLTRB(15, 0, 10, 0),
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child:Text('First name',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w400  )),
-                      decoration: BoxDecoration(
-                          color: Colors.white30,
-                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                          border: Border.all(
+                  Expanded(
+                   child: Container(
+                        width:SizeConfig.screenWidth,
+                        height: 50,
+                        margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                        padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                        child:Text('Sign up',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Colors.indigo.shade900,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold  )),
+                        decoration: BoxDecoration(
+                            color: Colors.white30,
+                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                            border: Border.all(
                               color: Colors.white,
-                          ))
+                            ))
+                    ),
                   ),
-                  Container(
-                      width: 280,
-                      height: 40,
-                      margin: EdgeInsets.fromLTRB(10,0, 5, 5),
-                      child: TextFormField(
-                        decoration:InputDecoration(
-                          hintText:'Input your first name',
-                          hintStyle: TextStyle(color: Colors.grey,  fontSize: 20,
-                              fontWeight: FontWeight.normal),
-                          fillColor:  Colors.grey,
-                          // filled: true,
-                          enabledBorder:OutlineInputBorder(
-                              borderSide:BorderSide(color:Colors.grey, )
-                          ),
-                          focusedBorder:OutlineInputBorder(
-                              borderSide:BorderSide(color:Colors.black, width:2)
-                          ),
-                        ),
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.white30,
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      )
-                  ),
+
                 ],
               ),
+
+
               Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                      width: 90,
-                      height: 20,
-                      margin: EdgeInsets.fromLTRB(15, 0, 10, 0),
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child:Text('Last name',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w400  )),
-                      decoration: BoxDecoration(
-                          color: Colors.white30,
-                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                          border: Border.all(
-                            color: Colors.white,
-                          ))
-                  ),
-                  Container(
-                      width: 280,
-                      height: 40,
-                      margin: EdgeInsets.fromLTRB(10,0, 5, 5),
-                      child: TextFormField(
-                        decoration:InputDecoration(
-                          hintText:'Input your last name',
-                          hintStyle: TextStyle(color: Colors.grey,  fontSize: 20,
-                              fontWeight: FontWeight.normal),
-                          fillColor:  Colors.grey,
-                          // filled: true,
-                          enabledBorder:OutlineInputBorder(
-                              borderSide:BorderSide(color:Colors.grey, )
-                          ),
-                          focusedBorder:OutlineInputBorder(
-                              borderSide:BorderSide(color:Colors.black, width:2)
-                          ),
-                        ),
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.white30,
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      )
-                  ),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                      width: 90,
-                      height: 20,
-                      margin: EdgeInsets.fromLTRB(15, 0, 10, 0),
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child:Text('Gender',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w400  )),
-                      decoration: BoxDecoration(
-                          color: Colors.white30,
-                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                          border: Border.all(
-                            color: Colors.white,
-                          ))
-                  ),
-                  Container(
-                      width: 280,
-                      height: 40,
-                      margin: EdgeInsets.fromLTRB(10,0, 5, 5),
-                      child: TextFormField(
-                        decoration:InputDecoration(
-                          hintText:'select your gender',
-                          hintStyle: TextStyle(color: Colors.grey,  fontSize: 20,
-                              fontWeight: FontWeight.normal),
-                          fillColor:  Colors.grey,
-                          // filled: true,
-                          enabledBorder:OutlineInputBorder(
-                              borderSide:BorderSide(color:Colors.grey, )
-                          ),
-                          focusedBorder:OutlineInputBorder(
-                              borderSide:BorderSide(color:Colors.black, width:2)
-                          ),
-                        ),
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.white30,
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      )
-                  ),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                      width: 90,
-                      height: 20,
-                      margin: EdgeInsets.fromLTRB(15, 0, 10, 0),
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child:Text('Password',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w400  )),
-                      decoration: BoxDecoration(
-                          color: Colors.white30,
-                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                          border: Border.all(
-                            color: Colors.white,
-                          ))
-                  ),
-                  Container(
-                      width: 280,
-                      height: 40,
-                      margin: EdgeInsets.fromLTRB(10,0, 5, 5),
-                      child: TextFormField(
-                        decoration:InputDecoration(
-                          hintText:'create a strong password',
-                          hintStyle: TextStyle(color: Colors.grey,  fontSize: 20,
-                              fontWeight: FontWeight.normal),
-                          fillColor:  Colors.grey,
-                          // filled: true,
-                          enabledBorder:OutlineInputBorder(
-                              borderSide:BorderSide(color:Colors.grey, )
-                          ),
-                          focusedBorder:OutlineInputBorder(
-                              borderSide:BorderSide(color:Colors.black, width:2)
-                          ),
-                        ),
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.white30,
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      )
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  Row(
                     children: [
-                      Container(
-                          width: 90,
-                          height: 20,
-                          margin: EdgeInsets.fromLTRB(15, 0, 10, 0),
-                          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                          child:Text('Email',
+                      Expanded(
+                      child:Container(
+                          width:SizeConfig.screenWidth,
+                          height: 22,
+                          padding: EdgeInsets.fromLTRB(10,0, 0, 0),
+                          child:Text('First name',
                               textAlign: TextAlign.left,
                               style: TextStyle(color: Colors.black,
                                   fontSize: 20,
@@ -240,13 +67,38 @@ class _sign_upState extends State<sign_up> {
                                 color: Colors.white,
                               ))
                       ),
+                      ),
+                      Expanded(
+                        child:
+                        Container(
+                            width:SizeConfig.screenWidth,
+                            height: 25,
+                            padding: EdgeInsets.fromLTRB(10,0, 0, 0),
+                            child:Text('Sign in?',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(color: Colors.greenAccent,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold  )),
+                            decoration: BoxDecoration(
+                                color: Colors.white30,
+                                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                border: Border.all(
+                                  color: Colors.white,
+                                ))
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 10,),
+                  Row(
+                    children: [
                       Container(
                           width: 280,
                           height: 40,
                           margin: EdgeInsets.fromLTRB(10,0, 5, 5),
                           child: TextFormField(
                             decoration:InputDecoration(
-                              hintText:'Input your email address',
+                              hintText:'Input your first name',
                               hintStyle: TextStyle(color: Colors.grey,  fontSize: 20,
                                   fontWeight: FontWeight.normal),
                               fillColor:  Colors.grey,
@@ -266,65 +118,227 @@ class _sign_upState extends State<sign_up> {
                       ),
                     ],
                   ),
-                ],
+                  Row(
+                    children: [
+                      Container(
+                          width:SizeConfig.screenWidth,
+                          height: 22,
+                          padding: EdgeInsets.fromLTRB(10,0, 0, 0),
+                          child:Text('Last name',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400  )),
+                          decoration: BoxDecoration(
+                              color: Colors.white30,
+                              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                              border: Border.all(
+                                color: Colors.white,
+                              ))
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10,),
+                  Row(
+                    children: [
+                      Container(
+                          width: 280,
+                          height: 40,
+                          margin: EdgeInsets.fromLTRB(10,0, 5, 5),
+                          child: TextFormField(
+                            decoration:InputDecoration(
+                              hintText:'Input your last name',
+                              hintStyle: TextStyle(color: Colors.grey,  fontSize: 20,
+                                  fontWeight: FontWeight.normal),
+                              fillColor:  Colors.grey,
+                              // filled: true,
+                              enabledBorder:OutlineInputBorder(
+                                  borderSide:BorderSide(color:Colors.grey, )
+                              ),
+                              focusedBorder:OutlineInputBorder(
+                                  borderSide:BorderSide(color:Colors.black, width:2)
+                              ),
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.white30,
+                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          )
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                          width:SizeConfig.screenWidth,
+                          height: 22,
+                          padding: EdgeInsets.fromLTRB(10,0, 0, 0),
+                          child:Text('Gender',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400  )),
+                          decoration: BoxDecoration(
+                              color: Colors.white30,
+                              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                              border: Border.all(
+                                color: Colors.white,
+                              ))
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10,),
+                  Row(
+                    children: [
+                      Container(
+                          width: 280,
+                          height: 40,
+                          margin: EdgeInsets.fromLTRB(10,0, 5, 5),
+                          child: TextFormField(
+                            decoration:InputDecoration(
+                              hintText:'Select your gender',
+                              hintStyle: TextStyle(color: Colors.grey,  fontSize: 20,
+                                  fontWeight: FontWeight.normal),
+                              fillColor:  Colors.grey,
+                              // filled: true,
+                              enabledBorder:OutlineInputBorder(
+                                  borderSide:BorderSide(color:Colors.grey, )
+                              ),
+                              focusedBorder:OutlineInputBorder(
+                                  borderSide:BorderSide(color:Colors.black, width:2)
+                              ),
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.white30,
+                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          )
+                      ),
+                    ],
+                  ),
+                      Row(
+                        children: [
+                          Container(
+                              width:SizeConfig.screenWidth,
+                              height: 22,
+                              padding: EdgeInsets.fromLTRB(10,0, 0, 0),
+                              child:Text('Password',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(color: Colors.black,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w400  )),
+                              decoration: BoxDecoration(
+                                  color: Colors.white30,
+                                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                  border: Border.all(
+                                    color: Colors.white,
+                                  ))
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 10,),
+                      Row(
+                        children: [
+                          Container(
+                              width: 280,
+                              height: 40,
+                              margin: EdgeInsets.fromLTRB(10,0, 5, 5),
+                              child: TextFormField(
+                                decoration:InputDecoration(
+                                  hintText:'create a strong password',
+                                  hintStyle: TextStyle(color: Colors.grey,  fontSize: 20,
+                                      fontWeight: FontWeight.normal),
+                                  fillColor:  Colors.grey,
+                                  // filled: true,
+                                  enabledBorder:OutlineInputBorder(
+                                      borderSide:BorderSide(color:Colors.grey, )
+                                  ),
+                                  focusedBorder:OutlineInputBorder(
+                                      borderSide:BorderSide(color:Colors.black, width:2)
+                                  ),
+                                ),
+                              ),
+                              decoration: BoxDecoration(
+                                color: Colors.white30,
+                                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                              )
+                          ),
+                        ],
+                      ),
+                  Row(
+                    children: [
+                      Container(
+                          width:SizeConfig.screenWidth,
+                          height: 22,
+                          padding: EdgeInsets.fromLTRB(10,0, 0, 0),
+                          child:Text('Email',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400  )),
+                          decoration: BoxDecoration(
+                              color: Colors.white30,
+                              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                              border: Border.all(
+                                color: Colors.white,
+                              ))
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10,),
+                  Row(
+                    children: [
+                      Container(
+                          width: 280,
+                          height: 40,
+                          margin: EdgeInsets.fromLTRB(10,0, 5, 5),
+                          child: TextFormField(
+                            decoration:InputDecoration(
+                              hintText:'Input a valid email',
+                              hintStyle: TextStyle(color: Colors.grey,  fontSize: 20,
+                                  fontWeight: FontWeight.normal),
+                              fillColor:  Colors.grey,
+                              // filled: true,
+                              enabledBorder:OutlineInputBorder(
+                                  borderSide:BorderSide(color:Colors.grey, )
+                              ),
+                              focusedBorder:OutlineInputBorder(
+                                  borderSide:BorderSide(color:Colors.black, width:2)
+                              ),
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.white30,
+                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          )
+                      ),
+                    ],
+                  ),
+            ],
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
                   InkWell(
                     onTap: (){
-                      Navigator.pushNamed(context,New_teacher.id );
-
+                      Navigator.pushNamed(context,New_teacher.id);
                     },
-                    child: Container(
-                      width: 260,
-                      height: 50,
-                      margin: EdgeInsets.fromLTRB(0,20, 20, 30),
-                      padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                      decoration: BoxDecoration(
-                          color: Colors.greenAccent,
-                          borderRadius: BorderRadius.all(Radius.circular(36))
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Sign up",
-                          style: TextStyle(
-                            fontWeight: FontWeight.normal,
-                            fontFamily: 'Roboto',
-                            fontSize:20,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                    child:  Container(
+                        width: 260,
+                        height: 50,
+                        margin: EdgeInsets.fromLTRB(50,10, 5, 30),
+                        padding: EdgeInsets.fromLTRB(8, 10, 10, 0),
+                        child:Text('Sign up',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w700  )),
+                        decoration: BoxDecoration(
+                            color: Colors.yellow,
+                            borderRadius: BorderRadius.all(Radius.circular(30.0),),
+                            border: Border.all(
+                                color: Colors.yellow,
+                                width: 2
+                            ))
                     ),
                   ),
-                  InkWell(
-                    onTap: (){
-                      Navigator.pushNamed(context,sign_in.id );
-
-                    },
-                  child:Container(
-                      width:SizeConfig.screenWidth,
-                      height: 30,
-                      margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                      padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
-                      child:Text('Sign in?',
-                          textAlign: TextAlign.end,
-                          style: TextStyle(color: Colors.indigo.shade900,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400  )),
-                      decoration: BoxDecoration(
-                          color: Colors.white30,
-                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                          border: Border.all(
-                            color: Colors.white,
-
-                          ))
-                  ),
-                  )
-                ],
-              )
-
             ]
 
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_teacher_app/Pages/Classroom.dart';
+import 'package:mobile_teacher_app/Pages/Create_Class.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
 
 class Join_class extends StatefulWidget {
@@ -29,52 +30,82 @@ class _Join_classState extends State<Join_class> {
                     fontWeight: FontWeight.bold  )),
 
           ),
+
+          SizedBox(height: 20,),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                  width: SizeConfig.screenWidth,
-                  height: 25,
-                  margin: EdgeInsets.fromLTRB(15, 0, 10, 0),
-                  padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child:Text('Class name',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400  )),
-                  decoration: BoxDecoration(
-                      color: Colors.white30,
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      border: Border.all(
-                          color: Colors.white,
-                          width: 2
-                      ))
-              ),
+              Row(
+                children: [
+                  Expanded(
+                    child:
+                  Container(
+                      width: SizeConfig.screenWidth,
+                      height: 25,
+                      child:Text('Class name',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400  )),
+                      decoration: BoxDecoration(
+                          color: Colors.white30,
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          border: Border.all(
+                              color: Colors.white,
+                              width: 2
+                          ))
+                  ),),
+                  Expanded(
+                    child:InkWell(
+                      onTap: (){
+                        Navigator.pushNamed(context, create_class.id);
+                      },
+                      child: Container(
+                        width: SizeConfig.screenWidth,
+                        height: 50,
+                        margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                        padding: EdgeInsets.fromLTRB(0, 15, 10, 0),
+                        child:Text('Create class?',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Colors.yellow,
+                                fontSize: 20,
+                                fontWeight: FontWeight.normal  )),
 
-              Container(
-                  width: 280,
-                  height: 50,
-                  margin: EdgeInsets.fromLTRB(10,0, 5, 10),
-                  child: TextFormField(
-                    decoration:InputDecoration(
-                      hintText:'Input class name/title',
-                      hintStyle: TextStyle(color: Colors.grey,  fontSize: 20,
-                          fontWeight: FontWeight.normal),
-                      fillColor:  Colors.grey,
-                      // filled: true,
-                      enabledBorder:OutlineInputBorder(
-                          borderSide:BorderSide(color:Colors.grey, )
                       ),
-                      focusedBorder:OutlineInputBorder(
-                          borderSide:BorderSide(color:Colors.black, width:2)
-                      ),
-                    ),
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.white30,
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  )
+                    ),),
+
+                ],
               ),
+             Row(
+               children: [
+                 Container(
+                     width: 280,
+                     height: 50,
+                     margin: EdgeInsets.fromLTRB(10,0, 5, 10),
+                     child: TextFormField(
+                       decoration:InputDecoration(
+                         hintText:'Input class name/title',
+                         hintStyle: TextStyle(color: Colors.grey,  fontSize: 20,
+                             fontWeight: FontWeight.normal),
+                         fillColor:  Colors.grey,
+                         // filled: true,
+                         enabledBorder:OutlineInputBorder(
+                             borderSide:BorderSide(color:Colors.grey, )
+                         ),
+                         focusedBorder:OutlineInputBorder(
+                             borderSide:BorderSide(color:Colors.black, width:2)
+                         ),
+                       ),
+                     ),
+                     decoration: BoxDecoration(
+                       color: Colors.white30,
+                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                     )
+                 ),
+               ],
+             )
+
+
             ],
           ),
           Column(
@@ -141,7 +172,7 @@ class _Join_classState extends State<Join_class> {
                             fontWeight: FontWeight.w700  )),
                     decoration: BoxDecoration(
                         color: Colors.yellow,
-                        borderRadius: BorderRadius.all(Radius.circular(10.0),),
+                        borderRadius: BorderRadius.all(Radius.circular(30.0),),
                         border: Border.all(
                             color: Colors.yellow,
                             width: 2

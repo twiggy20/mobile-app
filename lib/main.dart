@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_teacher_app/Pages/Classroom.dart';
+import 'package:mobile_teacher_app/Pages/Classroom_Lesson.dart';
 import 'package:mobile_teacher_app/Pages/Home/Home.dart' ;
 import 'package:mobile_teacher_app/Pages/Identity.dart';
 import 'package:mobile_teacher_app/Pages/Status.dart';
@@ -10,6 +11,7 @@ import 'package:mobile_teacher_app/Pages/Join_Class.dart';
 import 'package:mobile_teacher_app/Pages/Add_Student.dart' ;
 import 'package:mobile_teacher_app/Pages/Create_Class.dart';
 import 'package:mobile_teacher_app/Pages/Enter_Class.dart';
+import 'package:mobile_teacher_app/Pages/Response.dart';
 import 'package:mobile_teacher_app/Services/Auth.dart';
 import 'package:mobile_teacher_app/Pages/Wrapper.dart';
 import 'package:mobile_teacher_app/models/User.dart';
@@ -39,7 +41,9 @@ class MyApp extends StatelessWidget {
        Join_class.id: (context)=>Join_class(),
       Enter_class.id : (context)=>Add_student(),
        classroom.id: (context)=>classroom(),
-       create_class.id: (context)=>create_class()
+       create_class.id: (context)=>create_class(),
+       Response.id: (context)=>Response(),
+       classroom_lesson.id: (context)=>classroom_lesson()
      },
 
    );

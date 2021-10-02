@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_teacher_app/Pages/Sign_In.dart';
 import 'package:mobile_teacher_app/Pages/Sign_Up.dart';
+import 'package:mobile_teacher_app/utils/size_config.dart';
+
 class status extends StatefulWidget {
   static const String id = "status";
   @override
@@ -16,8 +18,8 @@ class _statusState extends State<status> {
         Column(
             children:[
               Container(
-                  width: 320,
-                  height: 100,
+                  width: SizeConfig.screenWidth,
+                  height: 150,
                   margin: EdgeInsets.fromLTRB(5.0, 20.0, 10.0, 20.0),
                   padding: EdgeInsets.fromLTRB(30.0, 5.0, 10.0, 10.0),
                   child: Text('Do you have an account with us?',
@@ -25,13 +27,7 @@ class _statusState extends State<status> {
                       style: TextStyle(color: Color(0xFF002255),
                           fontSize: 40,
                           fontWeight: FontWeight.bold  )),
-                  decoration: BoxDecoration(
-                      color: Colors.white30,
-                      borderRadius: BorderRadius.all(Radius.circular(0.0)),
-                      border: Border.all(
-                          color: Colors.white,
-                          width: 2
-                      ))
+
               ),
               GestureDetector(
                 onTap: () {

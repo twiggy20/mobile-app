@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_teacher_app/Pages/Home/Home.dart' ;
+import 'package:mobile_teacher_app/Pages/Enter_Class.dart';
+import 'package:mobile_teacher_app/Pages/Response.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
 
 class create_class extends StatefulWidget {
@@ -28,6 +31,7 @@ class _create_classState extends State<create_class> {
                         fontWeight: FontWeight.bold  )),
 
               ),
+              SizedBox(height: 20,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -124,7 +128,11 @@ class _create_classState extends State<create_class> {
                   ),
                 ],
               ),
-              Container(
+          InkWell(
+            onTap: (){
+              Navigator.pushNamed(context, home.id);
+            },
+              child:Container(
                   width: 260,
                   height: 50,
                   margin: EdgeInsets.fromLTRB(15,30, 5, 30),
@@ -141,7 +149,7 @@ class _create_classState extends State<create_class> {
                           color: Colors.greenAccent,
                           width: 2
                       ))
-              ),
+              ),),
 
             ],
           )

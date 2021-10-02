@@ -57,7 +57,7 @@ class _identityState extends State<identity> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Center(
-                                  //child: Image.asset("assets/icons/teacher_icon.png",width: 28.86,height: 37,fit: BoxFit.contain,),
+                                //  child: ImageIcon(AssetImage("Assets/teacher.png"), color: Colors.black,),
                                 ),
                               ),
                               SizedBox(width:28),

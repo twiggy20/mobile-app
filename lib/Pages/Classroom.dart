@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_teacher_app/Pages/Classroom_Lesson.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
 
 class classroom extends StatefulWidget {
@@ -24,8 +25,7 @@ class _classroomState extends State<classroom> {
           elevation: 0,
         ),
         body:Column(
-          // crossAxisAlignment: CrossAxisAlignment.end,
-          // crossAxisAlignment: CrossAxisAlignment.start,
+
             children: [
               Row(
                 children: [
@@ -42,7 +42,15 @@ class _classroomState extends State<classroom> {
                     ),
                   ),
                   SizedBox(width: 7,),
+                 /*  InkWell(
+                  onTap: (){
+                  Navigator.pushNamed(context, classroom.id);
+                  },*/
                   Expanded(
+                   child: InkWell(
+                    onTap: (){
+                    Navigator.pushNamed(context, classroom_lesson.id);
+                    },
                     child: Container(
                       width: SizeConfig.screenWidth,
                       height: 25,
@@ -53,6 +61,7 @@ class _classroomState extends State<classroom> {
                               fontWeight: FontWeight.bold  )),
                     ),
                   ),
+                   ),
                 ],
               ),
               Row(
