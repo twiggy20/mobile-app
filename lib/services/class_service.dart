@@ -4,7 +4,7 @@ import 'package:mobile_teacher_app/models/app_class.dart';
 class ClassService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final CollectionReference _classReference =
-      FirebaseFirestore.instance.collection('notes');
+      FirebaseFirestore.instance.collection('classes');
 
   Future addClass({
     String name,
@@ -17,20 +17,20 @@ class ClassService {
     }
   }
 
-  void getClass() async {
+  void getClass(String uid) async {
     DocumentSnapshot documentSnapshot;
     try {
-      documentSnapshot = await _classReference.doc('testUser').get();
+      documentSnapshot = await _classReference.doc(uid).get();
       print(documentSnapshot.data);
     } catch (e) {
       print(e);
     }
   }
 
-  void updateClass() async {
+  void updateClass(String uid) async {
     try {
-      _firestore.collection('users').doc('testUser').update({
-        'firstName': 'Alan',
+      _classReference.doc(uid).update({
+        //add data
       });
     } catch (e) {
       print(e);
@@ -39,25 +39,19 @@ class ClassService {
 
   Future allClasses() async {
     try {
-      List<QueryDocumentSnapshot> movies = await _classReference
+      List<QueryDocumentSnapshot> classes = await _classReference
           .limit(4)
           .get()
           .then((QuerySnapshot querySnapshot) => querySnapshot.docs);
-      /*List<QueryDocumentSnapshot<AppClass>> movies = await _classReference.limit(4).get().then((QuerySnapshot querySnapshot) {
-        print(querySnapshot.docs.length);
-        querySnapshot.docs.forEach((doc) {
-          print(doc["first_name"]);
-        });
-      });*/
-      return movies;
+      return classes;
     } catch (e) {
       e.message;
     }
   }
 
-  void _delete() async {
+  void _delete(String uid) async {
     try {
-      _firestore.collection('users').doc('testUser').delete();
+      _classReference.doc(uid).delete();
     } catch (e) {
       print(e);
     }
