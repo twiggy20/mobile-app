@@ -19,7 +19,7 @@ class _statusState extends State<status> {
             children:[
               Container(
                   width: SizeConfig.screenWidth,
-                  height: 150,
+                  height: 180,
                   margin: EdgeInsets.fromLTRB(5.0, 20.0, 10.0, 20.0),
                   padding: EdgeInsets.fromLTRB(30.0, 5.0, 10.0, 10.0),
                   child: Text('Do you have an account with us?',
@@ -31,7 +31,7 @@ class _statusState extends State<status> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, sign_in.id);
+                  Navigator.pushNamed(context, SignIn.id);
                 },
                 child:Container(
                     width: 200,
@@ -59,7 +59,7 @@ class _statusState extends State<status> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, sign_up.id);
+                  Navigator.pushNamed(context, SignUp.id);
                 },
                 child:Container(
                     width: 200,

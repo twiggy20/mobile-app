@@ -58,7 +58,7 @@ class _Join_classState extends State<Join_class> {
                   Expanded(
                     child:InkWell(
                       onTap: (){
-                        Navigator.pushNamed(context, create_class.id);
+                        Navigator.pushNamed(context, CreateClass.id);
                       },
                       child: Container(
                         width: SizeConfig.screenWidth,

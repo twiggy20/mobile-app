@@ -3,15 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:mobile_teacher_app/Pages/Home/Home.dart' ;
 import 'package:mobile_teacher_app/Pages/Enter_Class.dart';
 import 'package:mobile_teacher_app/Pages/Response.dart';
+import 'package:mobile_teacher_app/Services/class_service.dart';
+import 'package:mobile_teacher_app/locator.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
 
-class create_class extends StatefulWidget {
+class CreateClass extends StatefulWidget {
   static const String id = "create_class";
   @override
-  _create_classState createState() => _create_classState();
+  _CreateClassState createState() => _CreateClassState();
 }
 
-class _create_classState extends State<create_class> {
+class _CreateClassState extends State<CreateClass> {
+
+  final ClassService _classService = locator<ClassService>();
+  final nameController = TextEditingController();
+  final codeController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,6 +79,7 @@ class _create_classState extends State<create_class> {
                               borderSide:BorderSide(color:Colors.black, width:2)
                           ),
                         ),
+                        controller: nameController,
                       ),
                       decoration: BoxDecoration(
                         color: Colors.white30,
@@ -120,6 +128,7 @@ class _create_classState extends State<create_class> {
                               borderSide:BorderSide(color:Colors.black, width:2)
                           ),
                         ),
+                        controller: codeController,
                       ),
                       decoration: BoxDecoration(
                         color: Colors.white30,
@@ -129,8 +138,17 @@ class _create_classState extends State<create_class> {
                 ],
               ),
           InkWell(
-            onTap: (){
-              Navigator.pushNamed(context, home.id);
+            onTap: () async {
+
+              dynamic result = await _classService.addClass(name: nameController.text, code: codeController.text);
+              if (result == null) {
+                print('error creating class');
+              } else {
+                print(result);
+                Navigator.pushNamed(context, Home.id);
+              }
+
+              // Navigator.pushNamed(context, Home.id);
             },
               child:Container(
                   width: 260,

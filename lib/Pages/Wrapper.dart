@@ -7,7 +7,7 @@ class Wrapper extends StatelessWidget {
   //const wrapper({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final user=Provider.of<User>(context);
+    final user=Provider.of<AppUser>(context);
     return Authenticate() ;
   }
 }

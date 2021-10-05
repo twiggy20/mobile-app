@@ -32,7 +32,7 @@ class New_teacher extends StatelessWidget {
                 SizedBox(height:30),
                 InkWell(
                     onTap: (){
-                     Navigator.pushNamed(context,create_class.id);
+                     Navigator.pushNamed(context,CreateClass.id);
                     },
                     child:Container(
                         width: 280,
