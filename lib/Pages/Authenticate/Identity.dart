@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_teacher_app/Pages/Status.dart';
+import 'Status.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
 
 class identity extends StatefulWidget {

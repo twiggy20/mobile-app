@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_teacher_app/Pages/Home/Home.dart';
 import 'package:mobile_teacher_app/Pages/New_teacher.dart';
-import 'package:mobile_teacher_app/Pages/Sign_Up.dart';
+import 'Sign_Up.dart';
 import 'package:mobile_teacher_app/Services/auth_service.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
 
@@ -52,59 +52,61 @@ class _SignInState extends State<SignIn> {
           SizedBox(
             height: 20,
           ),
-          Column(
-            children: [
-              Row(
-                children: [
-                  Container(
-                      width: 70,
-                      height: 25,
-                      margin: EdgeInsets.fromLTRB(15, 0, 10, 0),
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child: Text('User ID',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w400)),
-                      decoration: BoxDecoration(
+          Center(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Container(
+                        width: 100,
+                        height: 25,
+                        margin: EdgeInsets.fromLTRB(15, 0, 10, 0),
+                        padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: Text('User ID',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400)),
+                        decoration: BoxDecoration(
+                            color: Colors.white30,
+                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                            border: Border.all(color: Colors.white, width: 2))),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Container(
+                        width: 280,
+                        height: 50,
+                        margin: EdgeInsets.fromLTRB(10, 0, 5, 10),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: 'Touch here to input your ID',
+                            hintStyle: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 20,
+                                fontWeight: FontWeight.normal),
+                            fillColor: Colors.grey,
+                            // filled: true,
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                              color: Colors.grey,
+                            )),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.black, width: 2)),
+                          ),
+                          controller: emailController,
+                        ),
+                        decoration: BoxDecoration(
                           color: Colors.white30,
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                          border: Border.all(color: Colors.white, width: 2))),
-                ],
-              ),
-              Row(
-                children: [
-                  Container(
-                      width: 280,
-                      height: 50,
-                      margin: EdgeInsets.fromLTRB(10, 0, 5, 10),
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          hintText: 'Touch here to input your ID',
-                          hintStyle: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 20,
-                              fontWeight: FontWeight.normal),
-                          fillColor: Colors.grey,
-                          // filled: true,
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                            color: Colors.grey,
-                          )),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.black, width: 2)),
-                        ),
-                        controller: emailController,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.white30,
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      )),
-                ],
-              )
-            ],
+                        )),
+                  ],
+                )
+              ],
+            ),
           ),
           SizedBox(
             height: 50,
@@ -114,7 +116,7 @@ class _SignInState extends State<SignIn> {
               Row(
                 children: [
                   Container(
-                      width: 100,
+                      width: 200,
                       height: 25,
                       margin: EdgeInsets.fromLTRB(15, 0, 10, 0),
                       padding: EdgeInsets.fromLTRB(0, 0, 0, 0),

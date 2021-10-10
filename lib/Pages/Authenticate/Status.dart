@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_teacher_app/Pages/Sign_In.dart';
-import 'package:mobile_teacher_app/Pages/Sign_Up.dart';
+import 'Sign_In.dart';
+import 'Sign_Up.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
 
 class status extends StatefulWidget {
