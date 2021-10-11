@@ -144,6 +144,7 @@ class _CreateClassState extends State<CreateClass> {
               if (result == null) {
                 print('error creating class');
               } else {
+                print('NAVIGATE!!!!');
                 print(result);
                 Navigator.pushNamed(context, Home.id);
               }

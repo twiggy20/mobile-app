@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_teacher_app/Pages/Classroom.dart';
-import 'package:mobile_teacher_app/Pages/Classroom_Lesson.dart';
+import 'package:mobile_teacher_app/Pages/Lesson/Lesson_Form.dart';
+import 'Pages/Lesson/Classroom_Lesson.dart';
 import 'package:mobile_teacher_app/Pages/Home/Home.dart';
 import 'Pages/Authenticate/Identity.dart';
 import 'Pages/Authenticate/Status.dart';
@@ -10,7 +11,7 @@ import 'Pages/Authenticate/Sign_Up.dart';
 import 'package:mobile_teacher_app/Pages/New_teacher.dart';
 import 'package:mobile_teacher_app/Pages/Join_Class.dart';
 import 'package:mobile_teacher_app/Pages/Add_Student.dart';
-import 'package:mobile_teacher_app/Pages/Create_Class.dart';
+import 'Pages/Class/Create_Class.dart';
 import 'package:mobile_teacher_app/Pages/Enter_Class.dart';
 import 'package:mobile_teacher_app/Pages/Response.dart';
 import 'package:mobile_teacher_app/Services/auth_service.dart';
@@ -40,6 +41,9 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       initialRoute: identity.id,
+      onGenerateRoute: (settings) {
+        print('ROUTING!!!');
+      },
       routes: {
         //'/': (context)=>classroom(),
         identity.id: (context) => identity(),
@@ -50,10 +54,11 @@ class MyApp extends StatelessWidget {
         New_teacher.id: (context) => New_teacher(),
         Join_class.id: (context) => Join_class(),
         Enter_class.id: (context) => Add_student(),
-        classroom.id: (context) => classroom(),
+        ClassRoom.id: (context) => ClassRoom(),
         CreateClass.id: (context) => CreateClass(),
         Response.id: (context) => Response(),
-        classroom_lesson.id: (context) => classroom_lesson()
+        ClassRoomLesson.id: (context) => ClassRoomLesson(),
+        LessonForm.id: (context) => LessonForm()
       },
     );
   }

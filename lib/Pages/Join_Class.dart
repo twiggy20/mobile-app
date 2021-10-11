@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_teacher_app/Pages/Classroom.dart';
-import 'package:mobile_teacher_app/Pages/Create_Class.dart';
+import 'Class/Create_Class.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
 
 class Join_class extends StatefulWidget {
@@ -158,7 +158,7 @@ class _Join_classState extends State<Join_class> {
           ),
             InkWell(
               onTap: (){
-                Navigator.pushNamed(context,classroom.id);
+                Navigator.pushNamed(context,ClassRoom.id);
               },
               child:  Container(
                     width: 260,
