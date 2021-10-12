@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_teacher_app/Pages/Home/Home.dart';
 import 'package:mobile_teacher_app/Pages/Enter_class.dart';
 import 'package:mobile_teacher_app/Pages/Join_Class.dart';
-import 'package:mobile_teacher_app/Pages/Create_Class.dart';
+import 'Class/Create_Class.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
 
 class New_teacher extends StatelessWidget {

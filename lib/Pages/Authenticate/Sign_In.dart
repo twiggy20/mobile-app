@@ -229,7 +229,11 @@ class _SignInState extends State<SignIn> {
                         } else {
                           print(result);
                           print('sign in successful');
+
                           Navigator.pushNamed(context, New_teacher.id);
+
+                          Navigator.pushNamedAndRemoveUntil(context, Home.id, (_) => false);
+
                         }
                       }),
                 ),

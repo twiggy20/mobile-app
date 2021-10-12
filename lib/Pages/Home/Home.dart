@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_teacher_app/Pages/Create_Class.dart';
+import '../Class/Create_Class.dart';
 import 'package:mobile_teacher_app/Pages/Classroom.dart';
 import 'package:mobile_teacher_app/Services/class_service.dart';
 import 'package:mobile_teacher_app/locator.dart';
@@ -20,16 +20,18 @@ class _HomeState extends State<Home> {
     final ClassService _classService = locator<ClassService>();
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: Text('Welcome',
             style: TextStyle(
-                color: Color(0xFF002255),
+                color: Colors.white,
                 fontSize: 20,
                 fontWeight: FontWeight.bold),
             textAlign: TextAlign.center),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
+        // backgroundColor: Colors.transparent,
         elevation: 0,
+        automaticallyImplyLeading: false,
       ),
       body: SafeArea(
         child: Container(
@@ -70,10 +72,12 @@ class _HomeState extends State<Home> {
                             child: ListView.builder(
                                 itemCount: snapshot.data.length,
                                 itemBuilder: (context, index) {
+
                                   AppClass appClass = snapshot.data[index];
                                   return InkWell(
                                     onTap: () {
-                                      Navigator.pushNamed(context, classroom.id);
+                                      print(':::::::::::::: ${appClass.name}');
+                                      Navigator.pushNamed(context, ClassRoom.id, arguments: appClass);
                                     },
                                     child: Container(
                                         width: 260,

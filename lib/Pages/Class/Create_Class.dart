@@ -153,6 +153,7 @@ class _CreateClassState extends State<CreateClass> {
                     fontSize: 16.0
                 );
               } else {
+                print('NAVIGATE!!!!');
                 print(result);
                 Navigator.pushNamed(context, Home.id);
               }

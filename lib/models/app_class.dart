@@ -1,18 +1,18 @@
 class AppClass{
-  final String uid;
+  String id;
   final String name;
   final String code;
 
-  AppClass({this.uid, this.name, this.code});
+  AppClass({this.id, this.name, this.code});
 
   AppClass.fromData(Map<String, dynamic> data)
-      : uid = data['uid'],
+      : id = data['id'],
         name = data['name'],
         code = data['code'];
 
   Map<String, dynamic> toJson() {
     return {
-      'uid': uid,
+      'id': id,
       'name': name,
       'code': code,
     };

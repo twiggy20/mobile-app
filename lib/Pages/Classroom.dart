@@ -1,22 +1,68 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_teacher_app/Pages/Classroom_Lesson.dart';
+//import 'package:mobile_teacher_app/Pages/Classroom_Lesson.dart';
 import 'package:mobile_teacher_app/Pages/View_Student.dart';
+import 'Lesson/Classroom_Lesson.dart';
+import 'package:mobile_teacher_app/Pages/student/Student_List.dart';
+import 'package:mobile_teacher_app/locator.dart';
+import 'package:mobile_teacher_app/models/app_class.dart';
+import 'package:mobile_teacher_app/services/class_service.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
 
-class classroom extends StatefulWidget {
+class ClassRoom extends StatefulWidget {
   static const String id = "classroom ";
 
   @override
-  _classroomState createState() => _classroomState();
+  _ClassRoomState createState() => _ClassRoomState();
 }
 
-class _classroomState extends State<classroom> {
+class _ClassRoomState extends State<ClassRoom> {
+
+  AppClass _classId;
+  final ClassService _classService = ClassService();
+
+  final _tabs = <Widget>[
+    Tab(text: 'Students'),
+    Tab(text: 'Lessons'),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    _classId = ModalRoute
+        .of(context)
+        .settings
+        .arguments as AppClass;
+
+    print('CLASS ${_classId.name}');
+    return DefaultTabController(length: _tabs.length, child: Scaffold(
+      appBar: AppBar(
+          title: Text(_classId.name.toUpperCase() ?? 'N/A',
+              style: TextStyle(color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center),
+          centerTitle: true,
+          // backgroundColor: Colors.transparent,
+          elevation: 1.0,
+          bottom: TabBar(
+            indicatorSize: TabBarIndicatorSize.tab,
+            indicatorColor: Colors.amberAccent,
+            indicatorWeight: 5.0,
+            tabs: _tabs,
+            labelStyle: TextStyle(),
+          )
+      ),
+      body: SafeArea(
+        child: TabBarView(children: <Widget>[
+          StudentList(courseId: _classId.id),
+          ClassRoomLesson(courseId: _classId.id)
+        ],),
+      ),
+    ));
+  }}
+   /* return Scaffold(
         appBar: AppBar(
-          title: Text('Class Name',
+          title: Text(_classId.name ?? 'N/A',
               style: TextStyle(color: Color(0xFF002255),
                   fontSize: 20,
                   fontWeight: FontWeight.bold),
@@ -42,11 +88,16 @@ class _classroomState extends State<classroom> {
                               fontWeight: FontWeight.bold  )),
                     ),
                   ),
+
                   SizedBox(width: 4,),
                  /*  InkWell(
+
+                  SizedBox(width: 7,),
+                 */ InkWell(
+
                   onTap: (){
                   Navigator.pushNamed(context, classroom.id);
-                  },*/
+                  },*//*
                   Expanded(
                    child: InkWell(
                     onTap: (){
@@ -156,6 +207,6 @@ class _classroomState extends State<classroom> {
         )
 //a button should be here
 
-    );
-  }
-}
+    );*/
+
+
