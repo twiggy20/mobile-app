@@ -1,8 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mobile_teacher_app/Pages/Classroom.dart';
 import 'package:mobile_teacher_app/Pages/Classroom_Lesson.dart';
 import 'package:mobile_teacher_app/Pages/Home/Home.dart';
+import 'Pages/Options.dart';
 import 'Pages/Authenticate/Identity.dart';
 import 'Pages/Authenticate/Status.dart';
 import 'Pages/Authenticate/Sign_In.dart';
@@ -53,7 +55,8 @@ class MyApp extends StatelessWidget {
         classroom.id: (context) => classroom(),
         CreateClass.id: (context) => CreateClass(),
         Response.id: (context) => Response(),
-        classroom_lesson.id: (context) => classroom_lesson()
+        classroom_lesson.id: (context) => classroom_lesson(),
+        Options.id: (context) => Options(),
       },
     );
   }

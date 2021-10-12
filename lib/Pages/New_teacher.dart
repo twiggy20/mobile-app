@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_teacher_app/Pages/Home/Home.dart';
 import 'package:mobile_teacher_app/Pages/Enter_class.dart';
 import 'package:mobile_teacher_app/Pages/Join_Class.dart';
 import 'package:mobile_teacher_app/Pages/Create_Class.dart';
@@ -57,7 +58,7 @@ class New_teacher extends StatelessWidget {
                 SizedBox(height:40),
                 InkWell(
                   onTap: (){
-                     Navigator.pushNamed(context,Join_class.id);
+                     Navigator.pushNamed(context,Home.id);
                   },
                   child:Container(
                     width: 280,

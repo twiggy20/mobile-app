@@ -107,7 +107,7 @@ class _HomeState extends State<Home> {
                                                             FontWeight.bold)),
                                               ],
                                             ),
-                                            Row(
+                                           /* Row(
                                               children: [
                                                 Text('Energy',
                                                     textAlign: TextAlign.start,
@@ -117,7 +117,7 @@ class _HomeState extends State<Home> {
                                                         fontWeight:
                                                             FontWeight.w400)),
                                               ],
-                                            )
+                                            )*/
                                           ],
                                         )),
                                   );
@@ -332,7 +332,6 @@ class _HomeState extends State<Home> {
                                   AssetImage("Assets/Add_new.png"),
                                   color: Colors.black,
                                 ),
-                                // child: Image.asset("assets/icons/teacher.png",width: 28.86,height: 37,fit: BoxFit.contain,),
                               ),
                             ),
                             // SizedBox(width:15),
@@ -351,7 +350,7 @@ class _HomeState extends State<Home> {
                   );
                 }
               }
-              return Center(child: CircularProgressIndicator(color: Colors.amber));
+             return Center(child: CircularProgressIndicator());
             },
           ),
         ),

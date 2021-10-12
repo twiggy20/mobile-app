@@ -79,6 +79,7 @@ class _classroomState extends State<classroom> {
                           )
                       ),
                     ),
+
                   ),
                   SizedBox(width: 7,),
                   Expanded(
@@ -105,7 +106,49 @@ class _classroomState extends State<classroom> {
                           width: SizeConfig.screenWidth,
                           height: 4,
                           child: Center(
-                           // child: Image.asset("assets/Female.png",width: 28.86,height: 37,fit: BoxFit.contain,),
+                            child: Image.asset("Assets/Female.png",width: 28.86,height: 37,fit: BoxFit.contain,),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        child: Container(
+                          width: 40,
+                          height: 6,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                              border:
+                              Border.all(color: Colors.grey[400])),
+                          child: Center(
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 29,
+                                  height: 4,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                  ),
+                                  child: Center(
+                                    child: ImageIcon(
+                                      AssetImage("Assets/Add_new.png"),
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                                // SizedBox(width:15),
+                                Text('Add new ',
+                                    //textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize:8,
+                                      fontWeight: FontWeight.normal,
+                                      fontFamily: "Roboto",
+                                    )),
+                              ],
+                            ),
                           ),
                         ),
                       ),

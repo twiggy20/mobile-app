@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mobile_teacher_app/Pages/New_teacher.dart';
 import 'Sign_In.dart';
 import 'package:mobile_teacher_app/Services/auth_service.dart';
@@ -346,10 +347,10 @@ class _SignUpState extends State<SignUp> {
                dynamic result = await _auth.signUpWithEmail(email: emailController.text, password: passwordController.text,
                           firstName: firstController.text, lastName: lastController.text);
               if (result == null) {
-                print('error signing in');
+                print('error signing up');
               } else {
                 print('sign up successful');
-                Navigator.pushNamed(context, New_teacher.id);
+                Navigator.pushNamed(context, SignIn.id);
               }
 
             },

@@ -62,7 +62,7 @@ class _SignInState extends State<SignIn> {
                         height: 25,
                         margin: EdgeInsets.fromLTRB(15, 0, 10, 0),
                         padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                        child: Text('User ID',
+                        child: Text('Email',
                             textAlign: TextAlign.left,
                             style: TextStyle(
                                 color: Colors.black,
@@ -202,7 +202,7 @@ class _SignInState extends State<SignIn> {
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, Home.id);
+                  Navigator.pushNamed(context, New_teacher.id);
                 },
                 child: Container(
                   width: 260,
@@ -229,7 +229,7 @@ class _SignInState extends State<SignIn> {
                         } else {
                           print(result);
                           print('sign in successful');
-                          Navigator.pushNamed(context, Home.id);
+                          Navigator.pushNamed(context, New_teacher.id);
                         }
                       }),
                 ),
