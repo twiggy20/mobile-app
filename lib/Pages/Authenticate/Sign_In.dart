@@ -205,7 +205,7 @@ class _SignInState extends State<SignIn> {
                   Navigator.pushNamed(context, New_teacher.id);
                 },
                 child: Container(
-                  width: 260,
+                  width: 320,
                   height: 50,
                   margin: EdgeInsets.fromLTRB(0, 20, 20, 30),
                   padding: EdgeInsets.fromLTRB(10, 10, 10, 0),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_teacher_app/Pages/Classroom_Lesson.dart';
+import 'package:mobile_teacher_app/Pages/View_Student.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
 
 class classroom extends StatefulWidget {
@@ -34,14 +35,14 @@ class _classroomState extends State<classroom> {
                       width: SizeConfig.screenWidth,
                       height: 25,
                       //padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
-                      child:Text('Student',
+                      child:Text('Pupils',
                           textAlign: TextAlign.center,
                           style: TextStyle(color: Colors.yellow,
                               fontSize: 20,
                               fontWeight: FontWeight.bold  )),
                     ),
                   ),
-                  SizedBox(width: 7,),
+                  SizedBox(width: 4,),
                  /*  InkWell(
                   onTap: (){
                   Navigator.pushNamed(context, classroom.id);
@@ -81,7 +82,7 @@ class _classroomState extends State<classroom> {
                     ),
 
                   ),
-                  SizedBox(width: 7,),
+                  SizedBox(width: 4,),
                   Expanded(
                     child: Container(
                       width: SizeConfig.screenWidth,
@@ -101,49 +102,44 @@ class _classroomState extends State<classroom> {
                 children: [
                   Row(
                     children: [
-                      Expanded(
-                        child: Container(
-                          width: SizeConfig.screenWidth,
-                          height: 4,
-                          child: Center(
-                            child: Image.asset("Assets/Female.png",width: 28.86,height: 37,fit: BoxFit.contain,),
-                          ),
+                         Container(
+                          width: 50,
+                          height: 40,
+                           margin: EdgeInsets.fromLTRB(0, 10, 10, 0),
+                           child:  ImageIcon(
+                       AssetImage("Assets/female_student.png"),
                         ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(
-                        child: Container(
-                          width: 40,
-                          height: 6,
+                         ),
+                    //  SizedBox(width: 10,),
+                        GestureDetector(
+                        onTap: () {
+                          print('new student clicked');
+                        Navigator.pushNamed(context, View_student.id);
+                        },
+                      child: Container(
+                          width: 80,
+                          height: 40,
+                          margin: EdgeInsets.fromLTRB(0, 10, 5, 0),
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.all(Radius.circular(10.0)),
                               border:
-                              Border.all(color: Colors.grey[400])),
+                              Border.all(color: Colors.grey)),
                           child: Center(
                             child: Row(
                               children: [
                                 Container(
-                                  width: 29,
-                                  height: 4,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                  ),
-                                  child: Center(
-                                    child: ImageIcon(
-                                      AssetImage("Assets/Add_new.png"),
-                                      color: Colors.black,
-                                    ),
+                                  padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
+                                  child: ImageIcon(
+                                    AssetImage("Assets/Add_new.png"),
+                                    color: Colors.black,
                                   ),
                                 ),
-                                // SizedBox(width:15),
-                                Text('Add new ',
+                                Text('Add new\n pupil ',
                                     //textAlign: TextAlign.center,
                                     style: TextStyle(
                                       color: Colors.black,
-                                      fontSize:8,
+                                      fontSize:10,
                                       fontWeight: FontWeight.normal,
                                       fontFamily: "Roboto",
                                     )),
@@ -151,7 +147,7 @@ class _classroomState extends State<classroom> {
                             ),
                           ),
                         ),
-                      ),
+                        ),
                     ],
                   )
                 ],

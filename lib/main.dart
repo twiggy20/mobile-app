@@ -15,6 +15,7 @@ import 'package:mobile_teacher_app/Pages/Add_Student.dart';
 import 'package:mobile_teacher_app/Pages/Create_Class.dart';
 import 'package:mobile_teacher_app/Pages/Enter_Class.dart';
 import 'package:mobile_teacher_app/Pages/Response.dart';
+import 'package:mobile_teacher_app/Pages/View_student.dart';
 import 'package:mobile_teacher_app/Services/auth_service.dart';
 import 'package:mobile_teacher_app/Pages/Wrapper.dart';
 import 'package:mobile_teacher_app/models/User.dart';
@@ -57,6 +58,7 @@ class MyApp extends StatelessWidget {
         Response.id: (context) => Response(),
         classroom_lesson.id: (context) => classroom_lesson(),
         Options.id: (context) => Options(),
+        View_student.id: (context) => View_student(),
       },
     );
   }
