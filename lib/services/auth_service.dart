@@ -41,7 +41,6 @@ class AuthService {
     try {
       var authResult = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
-      print('Auth:::: ${authResult}');
       await _populateCurrentUser(authResult.user);
       return authResult.user != null;
     } catch (e) {

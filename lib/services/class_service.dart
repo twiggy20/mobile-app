@@ -1,9 +1,11 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:mobile_teacher_app/locator.dart';
 import 'package:mobile_teacher_app/models/Lesson.dart';
 import 'package:mobile_teacher_app/models/Student.dart';
 import 'package:mobile_teacher_app/models/app_class.dart';
+import 'package:mobile_teacher_app/services/auth_service.dart';
 
 class ClassService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -13,6 +15,7 @@ class ClassService {
       FirebaseFirestore.instance.collection('class_students');
   final CollectionReference _studentReference =
       FirebaseFirestore.instance.collection('students');
+  final AuthService _authService = locator<AuthService>();
 
   Future addClass({
     String name,
@@ -20,7 +23,8 @@ class ClassService {
   }) async {
     try {
       var newClass = await _classReference.doc().id;
-      await _classReference.doc().set({'id': newClass, 'name': name, 'code': code});
+
+      await _classReference.doc().set({'id': newClass, 'name': name, 'code': code, 'creator': _authService.currentUser});
       return newClass;
     } catch (e) {
       print(e.toString());
@@ -55,7 +59,6 @@ class ClassService {
       List<QueryDocumentSnapshot> students =
       await _classStudentReference.where('class', isEqualTo: classId).get().then((QuerySnapshot querySnapshot) => querySnapshot.docs);
       // await _classStudentReference.doc('FgWsrKKMHYFErHnznITA_DzQyS1bHl7GtQon3YC5F').delete().then((value) => print('SUCCESS'));
-      print('LENGTH ${students.length}');
       students.forEach((element) {
         print(element.id);
         print(element.data()['student']);
