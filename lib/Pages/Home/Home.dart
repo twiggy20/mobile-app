@@ -148,7 +148,7 @@ class _HomeState extends State<Home> {
                                   ),
                                   child: Center(
                                     child: ImageIcon(
-                                      AssetImage("Assets/Add_new.png"),
+                                      AssetImage("assets/Add_new.png"),
                                       color: Colors.black,
                                     ),
                                     // child: Image.asset("assets/icons/teacher.png",width: 28.86,height: 37,fit: BoxFit.contain,),
@@ -323,7 +323,7 @@ class _HomeState extends State<Home> {
                               ),
                               child: Center(
                                 child: ImageIcon(
-                                  AssetImage("Assets/Add_new.png"),
+                                  AssetImage("assets/Add_new.png"),
                                   color: Colors.black,
                                 ),
                               ),

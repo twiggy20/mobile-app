@@ -1,17 +1,20 @@
+/*
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_teacher_app/Pages/student-onboarding/Status.dart';
 import 'Status.dart';
-import 'package:mobile_teacher_app/utils/size_config.dart';
+//import 'package:mobile_app/Pages/Sign_In.dart';
+//import 'package:mobile_app/Pages/Sign_In_2.dart';
+import 'package:mobile_app/utils/size_config.dart';
 
-class identity extends StatefulWidget {
-  static const String id = "Identity";
+import '../Reg_FName.dart';
 
+class Identity extends StatefulWidget {
+  static const String id = "identity";
   @override
-  _identityState createState() => _identityState();
+  _IdentityState createState() => _IdentityState();
 }
 
-class _identityState extends State<identity> {
+class _IdentityState extends State<Identity> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -36,7 +39,7 @@ class _identityState extends State<identity> {
                     SizedBox(height: 95,),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, status.id);
+                        Navigator.pushNamed(context, Status.id);
                       },
                       child:Container(
                         padding: EdgeInsets.only(top: 12,bottom: 12,left:17),
@@ -58,7 +61,7 @@ class _identityState extends State<identity> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Center(
-                                //  child: ImageIcon(AssetImage("Assets/teacher.png"), color: Colors.black,),
+                                  child: Image.asset("assets/icons/teacher.png",width: 28.86,height: 37,fit: BoxFit.contain,),
                                 ),
                               ),
                               SizedBox(width:28),
@@ -80,7 +83,7 @@ class _identityState extends State<identity> {
                     SizedBox(height: 33,),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, StudentStatus.id);
+                        Navigator.pushNamed(context, Status.id);
                       },
                       child:Container(
                         padding: EdgeInsets.only(top: 12,bottom: 12,left:17),
@@ -102,7 +105,7 @@ class _identityState extends State<identity> {
                                   color: Color(0xFFC8C23E),
                                 ),
                                 child: Center(
-                                 // child: Image.asset("assets/icons/student_icon.png",width: 28.86,height: 37,fit: BoxFit.contain,),
+                                  child: Image.asset("assets/icons/student.png",width: 28.86,height: 37,fit: BoxFit.contain,),
                                 ),
                               ),
                               SizedBox(width:28),
@@ -129,3 +132,4 @@ class _identityState extends State<identity> {
   }
 }
 
+*/

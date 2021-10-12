@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mobile_teacher_app/Pages/New_teacher.dart';
 import 'Sign_In.dart';
 import 'package:mobile_teacher_app/Services/auth_service.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
@@ -19,6 +17,7 @@ class _SignUpState extends State<SignUp> {
   final firstController = TextEditingController();
   final lastController = TextEditingController();
   final passwordController = TextEditingController();
+  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
