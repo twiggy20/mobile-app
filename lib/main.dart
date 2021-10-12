@@ -1,8 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mobile_teacher_app/Pages/Classroom.dart';
 import 'package:mobile_teacher_app/Pages/Lesson/Lesson_Form.dart';
+import 'package:mobile_teacher_app/dialog_manager.dart';
+import 'package:mobile_teacher_app/services/dialog_service.dart';
 import 'Pages/Lesson/Classroom_Lesson.dart';
 import 'package:mobile_teacher_app/Pages/Home/Home.dart';
 import 'Pages/Options.dart';
@@ -29,6 +32,10 @@ import 'locator.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(MyApp());
 }
 
@@ -44,6 +51,11 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       initialRoute: identity.id,
+      builder: (context, child) => Navigator(
+        key: locator<DialogService>().dialogNavigationKey,
+        onGenerateRoute: (settings) => MaterialPageRoute(
+            builder: (context) => DialogManager(child: child)),
+      ),
       onGenerateRoute: (settings) {
         print('ROUTING!!!');
       },

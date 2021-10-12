@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:mobile_teacher_app/Pages/student/StudentLookUp.dart';
 import 'package:mobile_teacher_app/models/Student.dart';
@@ -70,9 +69,9 @@ class _StudentListState extends State<StudentList> {
                                   child: Column(
                                     mainAxisAlignment:MainAxisAlignment.spaceEvenly,
                                     children: [
-                                    //  student?.gender == 'MALE' ? Icon(Icons.male) : Icon(Icons.female),
-                                     // Text(student?.firstName.toUpperCase() ?? 'N/A', style: TextStyle(fontSize: 18, color: Colors.black),
-                                     //     textAlign: TextAlign.center),
+                                     student?.gender == 'MALE' ? Image.asset("Assets/male_student.png",width: 28.86,height: 37,fit: BoxFit.contain,) : Image.asset("Assets/female_student.png",width: 28.86,height: 37,fit: BoxFit.contain,),
+                                     Text(student?.firstName.toUpperCase() ?? 'N/A', style: TextStyle(fontSize: 18, color: Colors.black),
+                                         textAlign: TextAlign.center),
                                     ],
                                   ),
                                 ),
