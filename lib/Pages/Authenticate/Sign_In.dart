@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_teacher_app/Pages/Home/Home.dart';
 import 'package:mobile_teacher_app/Pages/New_teacher.dart';
+import 'package:mobile_teacher_app/locator.dart';
+import 'package:mobile_teacher_app/services/dialog_service.dart';
 import 'Sign_Up.dart';
 import 'package:mobile_teacher_app/Services/auth_service.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
@@ -18,6 +20,7 @@ class _SignInState extends State<SignIn> {
   final AuthService _auth = AuthService();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +65,7 @@ class _SignInState extends State<SignIn> {
                         height: 25,
                         margin: EdgeInsets.fromLTRB(15, 0, 10, 0),
                         padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                        child: Text('User ID',
+                        child: Text('Email',
                             textAlign: TextAlign.left,
                             style: TextStyle(
                                 color: Colors.black,
@@ -197,67 +200,53 @@ class _SignInState extends State<SignIn> {
               ),
             ],
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, Home.id);
-                },
-                child: Container(
-                  width: 260,
-                  height: 50,
-                  margin: EdgeInsets.fromLTRB(0, 20, 20, 30),
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                        side: BorderSide(color: Colors.yellow, width: 2),
-                      ),
-                      color: Colors.yellow,
-                      child: Text('Sign in',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700)),
-                      onPressed: () async {
-                        // dynamic result = await _auth.AnonSignin();
-                        dynamic result = await _auth.loginWithEmail(email: emailController.text, password: passwordController.text);
-                        if (result == null) {
-                          print('error signing in');
-                        } else {
-                          print(result);
-                          print('sign in successful');
-                          Navigator.pushNamedAndRemoveUntil(context, Home.id, (_) => false);
-                        }
-                      }),
-                ),
-              ),
-              /*  Container(
-                    width: 260,
-                    height: 50,
-                    margin: EdgeInsets.fromLTRB(15,0, 5, 10),
-                    padding: EdgeInsets.fromLTRB(8, 10, 10, 0),
-                    child:Text('Back',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700  )),
-                    decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(30.0),
-                            topLeft: Radius.circular(30.0),
-                            bottomRight: Radius.circular(30.0),
-                            bottomLeft: Radius.circular(30.0)),
-                        border: Border.all(
-                            color: Colors.black,
-                            width: 2
-                        ))
-                ),*/
-            ],
-          )
+          Padding(padding: EdgeInsets.all(24.0), child: Container(
+            child: SizedBox(
+              width: double.infinity/2,
+              height: MediaQuery.of(context).size.height * 0.06,
+              child: RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                    side: BorderSide(color: Colors.yellow, width: 2),
+                  ),
+                  color: Colors.yellow,
+                  child: loading ? SizedBox(
+                    child: CircularProgressIndicator(
+                      valueColor:
+                      AlwaysStoppedAnimation<Color>(Colors.black12),
+                    ),
+                    height: 22.0,
+                    width: 22.0,
+                  ) : Text('Sign in',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700)),
+                  onPressed: () async {
+                    // dynamic result = await _auth.AnonSignin();
+                    setState(() {
+                      loading = true;
+                    });
+                    dynamic result = await _auth.loginWithEmail(email: emailController.text, password: passwordController.text);
+                    if (result == null) {
+                      print('error signing in');
+                      setState(() {
+                        loading = false;
+                      });
+
+                    } else {
+                      print(result);
+                      print('sign in successful');
+
+                      // Navigator.pushNamed(context, New_teacher.id);
+
+                      Navigator.pushNamedAndRemoveUntil(context, New_teacher.id, (_) => false);
+
+                    }
+                  }),
+            ),
+          ),)
         ]),
       ),
     );

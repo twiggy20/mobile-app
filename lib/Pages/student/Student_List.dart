@@ -70,9 +70,9 @@ class _StudentListState extends State<StudentList> {
                                   child: Column(
                                     mainAxisAlignment:MainAxisAlignment.spaceEvenly,
                                     children: [
-                                      student?.gender == 'MALE' ? Icon(Icons.male) : Icon(Icons.female),
-                                      Text(student?.firstName.toUpperCase() ?? 'N/A', style: TextStyle(fontSize: 18, color: Colors.black),
-                                          textAlign: TextAlign.center),
+                                     student?.gender == 'MALE' ? Icon(Icons.male) : Icon(Icons.female),
+                                     Text(student?.firstName.toUpperCase() ?? 'N/A', style: TextStyle(fontSize: 18, color: Colors.black),
+                                         textAlign: TextAlign.center),
                                     ],
                                   ),
                                 ),
@@ -85,7 +85,7 @@ class _StudentListState extends State<StudentList> {
                   ),
                 );
               }
-              return Center(child: CircularProgressIndicator(color: Colors.amber));
+              return Center(child: CircularProgressIndicator());
             }),
       ),
     );

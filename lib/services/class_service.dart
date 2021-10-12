@@ -90,7 +90,7 @@ class ClassService {
   Future allClasses() async {
     try {
       List<QueryDocumentSnapshot> classes = await _classReference
-          .limit(4)
+          .limit(10)
           .get()
           .then((QuerySnapshot querySnapshot) => querySnapshot.docs);
       var mappedClass = classes.map((e) {
@@ -125,10 +125,13 @@ class ClassService {
     try {
       print('TRYINGGGGG');
       List<QueryDocumentSnapshot> lessons = await _classReference
-          .doc(courseId).collection("lesson")
+          .doc(courseId).collection("lessons")
           .get()
           .then((QuerySnapshot querySnapshot) => querySnapshot.docs);
       print('LENGTH ${lessons.length}');
+      lessons.forEach((element) {
+        print('ELEMENT ::>  ${element.data()}');
+      });
       return lessons.map((e) => Lesson.fromData(e.data())).toList();
     } catch(e) {
       print(e);

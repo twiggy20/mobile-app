@@ -3,10 +3,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:mobile_teacher_app/Services/user_service.dart';
 import 'package:mobile_teacher_app/locator.dart';
 import 'package:mobile_teacher_app/models/User.dart';
+import 'package:mobile_teacher_app/services/dialog_service.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final UserService _userService = locator<UserService>();
+  final DialogService _dialogService = locator<DialogService>();
+
 
   AppUser _currentUser;
 
@@ -40,11 +43,13 @@ class AuthService {
   }) async {
     try {
       var authResult = await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
+          email: email.trim(), password: password);
       await _populateCurrentUser(authResult.user);
       return authResult.user != null;
     } catch (e) {
       print(e);
+      _dialogService.showDialog(title: 'Sign In Failed', description: 'Please check your credentials');
+
       // return e.message;
     }
   }

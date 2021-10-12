@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+//import 'package:mobile_teacher_app/Pages/Classroom_Lesson.dart';
+import 'package:mobile_teacher_app/Pages/View_Student.dart';
 import 'Lesson/Classroom_Lesson.dart';
 import 'package:mobile_teacher_app/Pages/student/Student_List.dart';
 import 'package:mobile_teacher_app/locator.dart';
@@ -26,12 +28,14 @@ class _ClassRoomState extends State<ClassRoom> {
 
   @override
   Widget build(BuildContext context) {
-
-    _classId = ModalRoute.of(context).settings.arguments as AppClass;
+    _classId = ModalRoute
+        .of(context)
+        .settings
+        .arguments as AppClass;
 
     print('CLASS ${_classId.name}');
     return DefaultTabController(length: _tabs.length, child: Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
           title: Text(_classId.name.toUpperCase() ?? 'N/A',
               style: TextStyle(color: Colors.white,
                   fontSize: 20,
@@ -39,19 +43,23 @@ class _ClassRoomState extends State<ClassRoom> {
               textAlign: TextAlign.center),
           centerTitle: true,
           // backgroundColor: Colors.transparent,
-            elevation: 1.0,
-            bottom: TabBar(
-              indicatorSize: TabBarIndicatorSize.tab,
-              indicatorColor: Colors.amberAccent,
-              indicatorWeight: 5.0,
-              tabs: _tabs,
-              labelStyle: TextStyle(),
-            )
-        ),
+          elevation: 1.0,
+          bottom: TabBar(
+            indicatorSize: TabBarIndicatorSize.tab,
+            indicatorColor: Colors.amberAccent,
+            indicatorWeight: 5.0,
+            tabs: _tabs,
+            labelStyle: TextStyle(),
+          )
+      ),
       body: SafeArea(
-        child: TabBarView(children: <Widget>[StudentList(courseId: _classId.id), ClassRoomLesson(courseId: _classId.id)],),
+        child: TabBarView(children: <Widget>[
+          StudentList(courseId: _classId.id),
+          ClassRoomLesson(courseId: _classId.id)
+        ],),
       ),
     ));
+  }}
    /* return Scaffold(
         appBar: AppBar(
           title: Text(_classId.name ?? 'N/A',
@@ -73,15 +81,20 @@ class _ClassRoomState extends State<ClassRoom> {
                       width: SizeConfig.screenWidth,
                       height: 25,
                       //padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
-                      child:Text('Student',
+                      child:Text('Pupils',
                           textAlign: TextAlign.center,
                           style: TextStyle(color: Colors.yellow,
                               fontSize: 20,
                               fontWeight: FontWeight.bold  )),
                     ),
                   ),
+
+                  SizedBox(width: 4,),
+                 /*  InkWell(
+
                   SizedBox(width: 7,),
-                 *//*  InkWell(
+                 */ InkWell(
+
                   onTap: (){
                   Navigator.pushNamed(context, classroom.id);
                   },*//*
@@ -118,8 +131,9 @@ class _ClassRoomState extends State<ClassRoom> {
                           )
                       ),
                     ),
+
                   ),
-                  SizedBox(width: 7,),
+                  SizedBox(width: 4,),
                   Expanded(
                     child: Container(
                       width: SizeConfig.screenWidth,
@@ -139,15 +153,52 @@ class _ClassRoomState extends State<ClassRoom> {
                 children: [
                   Row(
                     children: [
-                      Expanded(
-                        child: Container(
-                          width: SizeConfig.screenWidth,
-                          height: 4,
+                         Container(
+                          width: 50,
+                          height: 40,
+                           margin: EdgeInsets.fromLTRB(0, 10, 10, 0),
+                           child:  ImageIcon(
+                       AssetImage("Assets/female_student.png"),
+                        ),
+                         ),
+                    //  SizedBox(width: 10,),
+                        GestureDetector(
+                        onTap: () {
+                          print('new student clicked');
+                        Navigator.pushNamed(context, View_student.id);
+                        },
+                      child: Container(
+                          width: 80,
+                          height: 40,
+                          margin: EdgeInsets.fromLTRB(0, 10, 5, 0),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                              border:
+                              Border.all(color: Colors.grey)),
                           child: Center(
-                           // child: Image.asset("assets/Female.png",width: 28.86,height: 37,fit: BoxFit.contain,),
+                            child: Row(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
+                                  child: ImageIcon(
+                                    AssetImage("Assets/Add_new.png"),
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                Text('Add new\n pupil ',
+                                    //textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize:10,
+                                      fontWeight: FontWeight.normal,
+                                      fontFamily: "Roboto",
+                                    )),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
+                        ),
                     ],
                   )
                 ],
@@ -157,5 +208,5 @@ class _ClassRoomState extends State<ClassRoom> {
 //a button should be here
 
     );*/
-  }
-}
+
+

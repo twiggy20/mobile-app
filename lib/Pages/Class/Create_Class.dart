@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mobile_teacher_app/Pages/Home/Home.dart' ;
 import 'package:mobile_teacher_app/Pages/Enter_Class.dart';
 import 'package:mobile_teacher_app/Pages/Response.dart';
@@ -142,7 +143,15 @@ class _CreateClassState extends State<CreateClass> {
 
               dynamic result = await _classService.addClass(name: nameController.text, code: codeController.text);
               if (result == null) {
-                print('error creating class');
+                Fluttertoast.showToast(
+                    msg: "No input field should be empty",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.redAccent,
+                    textColor: Colors.white,
+                    fontSize: 16.0
+                );
               } else {
                 print('NAVIGATE!!!!');
                 print(result);

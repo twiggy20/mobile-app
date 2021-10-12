@@ -76,7 +76,6 @@ class _HomeState extends State<Home> {
                                   AppClass appClass = snapshot.data[index];
                                   return InkWell(
                                     onTap: () {
-                                      print(':::::::::::::: ${appClass.name}');
                                       Navigator.pushNamed(context, ClassRoom.id, arguments: appClass);
                                     },
                                     child: Container(
@@ -111,17 +110,6 @@ class _HomeState extends State<Home> {
                                                             FontWeight.bold)),
                                               ],
                                             ),
-                                            Row(
-                                              children: [
-                                                Text('Energy',
-                                                    textAlign: TextAlign.start,
-                                                    style: TextStyle(
-                                                        color: Color(0xFF000000),
-                                                        fontSize: 17,
-                                                        fontWeight:
-                                                            FontWeight.w400)),
-                                              ],
-                                            )
                                           ],
                                         )),
                                   );
@@ -129,25 +117,27 @@ class _HomeState extends State<Home> {
                           ),
                         ],
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, CreateClass.id);
-                        },
-                        child: Container(
-                          width: 260,
-                          height: 60,
-                          margin: EdgeInsets.fromLTRB(20, 0, 5, 10),
-                          padding: EdgeInsets.fromLTRB(5, 5, 10, 0),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(10.0),
-                                  topLeft: Radius.circular(10.0),
-                                  bottomRight: Radius.circular(10.0),
-                                  bottomLeft: Radius.circular(10.0)),
-                              border: Border.all(
-                                  color: Colors.grey[400], width: 2)),
-                          child: Center(
+                      SizedBox(height: 16.0,),
+                      SizedBox(
+                      width: double.infinity,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, CreateClass.id);
+                          },
+                          child: Container(
+                            width: 260,
+                            height: 60,
+                            margin: EdgeInsets.fromLTRB(20, 0, 5, 10),
+                            padding: EdgeInsets.fromLTRB(5, 5, 10, 0),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(10.0),
+                                    topLeft: Radius.circular(10.0),
+                                    bottomRight: Radius.circular(10.0),
+                                    bottomLeft: Radius.circular(10.0)),
+                                border: Border.all(
+                                    color: Colors.grey[400], width: 2)),
                             child: Row(
                               children: [
                                 Container(
@@ -336,7 +326,6 @@ class _HomeState extends State<Home> {
                                   AssetImage("Assets/Add_new.png"),
                                   color: Colors.black,
                                 ),
-                                // child: Image.asset("assets/icons/teacher.png",width: 28.86,height: 37,fit: BoxFit.contain,),
                               ),
                             ),
                             // SizedBox(width:15),
@@ -355,7 +344,7 @@ class _HomeState extends State<Home> {
                   );
                 }
               }
-              return Center(child: CircularProgressIndicator(color: Colors.amber));
+             return Center(child: CircularProgressIndicator());
             },
           ),
         ),

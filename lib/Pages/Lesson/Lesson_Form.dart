@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
-class LessonForm extends StatefulWidget {
+import 'dart:io';
 
+import 'package:file_picker/file_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:mobile_teacher_app/locator.dart';
+import 'package:mobile_teacher_app/models/Lesson.dart';
+import 'package:mobile_teacher_app/services/class_service.dart';
+import 'package:mobile_teacher_app/services/storage_service.dart';
+
+class LessonForm extends StatefulWidget {
   static const String id = "lesson_form";
 
   Function callback;
@@ -13,13 +21,19 @@ class LessonForm extends StatefulWidget {
 }
 
 class _LessonFormState extends State<LessonForm> {
+  File file;
+  String fileName;
+
   final _formKey = GlobalKey<FormState>();
+  final ClassService _classService = ClassService();
+  String _classId;
 
   final FocusNode _nameFocusNode = FocusNode();
   final FocusNode _phoneFocusNode = FocusNode();
 
   final TextEditingController _topicController = TextEditingController();
   final TextEditingController _textController = TextEditingController();
+
   // final TextEditingController _emailController = TextEditingController();
   // final TextEditingController _passwordController = TextEditingController();
 
@@ -29,6 +43,9 @@ class _LessonFormState extends State<LessonForm> {
 
   @override
   Widget build(BuildContext context) {
+
+    _classId = ModalRoute.of(context).settings.arguments as String;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Lesson Form'),
@@ -37,46 +54,23 @@ class _LessonFormState extends State<LessonForm> {
         child: Container(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Form(
-              key: _formKey,
+            child: Center(
               child: Column(
-                children: <Widget>[
-                  TextFormField(
-                    controller: _topicController,
-                    keyboardType: TextInputType.text,
-                    textInputAction: TextInputAction.next,
-                    focusNode: _nameFocusNode,
-                    onFieldSubmitted: (String value) {
-                      //Do anything with value
-                      _nextFocus(_phoneFocusNode);
-                    },
-                    decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Enter lesson topic'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
+                children: [
+                  RaisedButton(
+                    onPressed: () => {selectFile()},
+                    child: Text('Select File'),
                   ),
-                  TextFormField(),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // Validate returns true if the form is valid, or false otherwise.
-                        if (_formKey.currentState.validate()) {
-                          // If the form is valid, display a snackbar. In the real world,
-                          // you'd often call a server or save the information in a database.
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Processing Data')),
-                          );
-                        }
-                      },
-                      child: const Text('Submit'),
-                    ),
-                  )
+                  SizedBox(
+                    height: 24.0,
+                  ),
+                  fileName != null ? Text(fileName) : Container(),
+                  SizedBox(
+                    height: 24.0,
+                  ),
+                  RaisedButton(
+                      onPressed: () => {uploadFile()},
+                      child: Text('Upload File')),
                 ],
               ),
             ),
@@ -84,5 +78,42 @@ class _LessonFormState extends State<LessonForm> {
         ),
       ),
     );
+  }
+
+  Future selectFile() async {
+    final result = await FilePicker.platform.pickFiles(allowMultiple: false);
+    if (result == null) return;
+    // List<File> files = result.paths.map((path) => File(path)).toList();
+    final path = result.files.single.path;
+    setState(() {
+      file = File(path);
+      fileName = getImageName(file);
+    });
+    return file;
+  }
+
+  getImageName(File file) {
+    if (file == null) {
+      return 'No File Selected';
+    }
+    final parts = file.path.split('/').last.split('.');
+    return parts.skip(parts.length - 2).take(2).join('.');
+  }
+
+  Future uploadFile() async {
+    if (file == null) return;
+    // final fileName = file.path;
+    final destination = 'files/$fileName';
+
+    UploadTask task = StorageService.uploadFile(destination, file);
+    if (task != null) {
+      final snapshot = await task.whenComplete(() => {});
+      final url = await snapshot.ref.getDownloadURL();
+      Lesson lesson = Lesson();
+      lesson.fileUrl = url;
+      lesson.uid = _classId;
+      _classService.addLesson(_classId, lesson);
+      print('DOWNLOAD LINK ::::: ${url}');
+    }
   }
 }

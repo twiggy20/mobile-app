@@ -35,6 +35,8 @@ dependencies:
   image_picker: ^0.6.0+17
   get_it: ^4.0.2
   file_picker: ^2.1.7
+  fluttertoast: ^8.0.8
+  cached_network_image: ^2.5.1
 #  cloud_firestore: ^2.5.3
   provider: ^6.0.0
 
@@ -57,7 +59,7 @@ flutter:
   assets:
     - Assets/Add_new.png
    #  - Assets/student_icon.png
-    -  Assets/school girl.png
+    - Assets/school girl.png
    # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
