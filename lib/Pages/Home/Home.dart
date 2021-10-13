@@ -147,10 +147,7 @@ class _HomeState extends State<Home> {
                                     color: Colors.white,
                                   ),
                                   child: Center(
-                                    child: ImageIcon(
-                                      AssetImage("Assets/Add_new.png"),
-                                      color: Colors.black,
-                                    ),
+                                    child: Icon(Icons.add),
                                     // child: Image.asset("assets/icons/teacher.png",width: 28.86,height: 37,fit: BoxFit.contain,),
                                   ),
                                 ),
@@ -194,10 +191,10 @@ class _HomeState extends State<Home> {
                           Column(
                             children: [
                               Container(
-                                  width: 260,
+                                  width: MediaQuery.of(context).size.width,
                                   height: 60,
-                                  margin: EdgeInsets.fromLTRB(20, 0, 5, 10),
-                                  padding: EdgeInsets.fromLTRB(5, 5, 10, 0),
+                                  margin: EdgeInsets.fromLTRB(10, 0, 5, 10),
+                                  padding: EdgeInsets.fromLTRB(10, 5, 10, 0),
                                   decoration: BoxDecoration(
                                       color: Colors.white30,
                                       borderRadius: BorderRadius.only(
@@ -241,10 +238,10 @@ class _HomeState extends State<Home> {
                                     ],
                                   )),
                               Container(
-                                  width: 260,
+                                  width: MediaQuery.of(context).size.width,
                                   height: 60,
-                                  margin: EdgeInsets.fromLTRB(20, 0, 5, 10),
-                                  padding: EdgeInsets.fromLTRB(5, 5, 10, 0),
+                                  margin: EdgeInsets.fromLTRB(10, 0, 5, 10),
+                                  padding: EdgeInsets.fromLTRB(10, 5, 10, 0),
                                   decoration: BoxDecoration(
                                       color: Colors.white30,
                                       borderRadius: BorderRadius.only(
@@ -323,7 +320,7 @@ class _HomeState extends State<Home> {
                               ),
                               child: Center(
                                 child: ImageIcon(
-                                  AssetImage("Assets/Add_new.png"),
+                                  AssetImage("assets/Add_new.png"),
                                   color: Colors.black,
                                 ),
                               ),

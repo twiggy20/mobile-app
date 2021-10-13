@@ -1,12 +1,19 @@
-class Student{
+class Student {
   String id;
-  final String firstName;
-  final String surname;
-  final int age;
-  final String level;
-  final String gender;
+  String firstName;
+  String surname;
+  dynamic age;
+  String level;
+  String gender;
+  String code;
 
-  Student({this.id, this.firstName, this.surname, this.age, this.level, this.gender});
+  Student(
+      {this.id,
+      this.firstName,
+      this.surname,
+      this.age,
+      this.level,
+      this.gender});
 
   Map<String, dynamic> toJson() {
     return {
@@ -15,6 +22,7 @@ class Student{
       'age': age,
       'level': level,
       'gender': gender,
+      'code': code
     };
   }
 
@@ -23,5 +31,6 @@ class Student{
         surname = data['surname'],
         age = data['age'],
         level = data['level'],
+        code = data['code'],
         gender = data['gender'];
 }

@@ -4,8 +4,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mobile_teacher_app/locator.dart';
 import 'package:mobile_teacher_app/models/Lesson.dart';
 import 'package:mobile_teacher_app/models/Student.dart';
+import 'package:mobile_teacher_app/models/User.dart';
 import 'package:mobile_teacher_app/models/app_class.dart';
 import 'package:mobile_teacher_app/services/auth_service.dart';
+import 'package:mobile_teacher_app/services/dialog_service.dart';
+import 'package:mobile_teacher_app/services/local_storage.dart';
 
 class ClassService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -15,7 +18,7 @@ class ClassService {
       FirebaseFirestore.instance.collection('class_students');
   final CollectionReference _studentReference =
       FirebaseFirestore.instance.collection('students');
-  final AuthService _authService = locator<AuthService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   Future addClass({
     String name,
@@ -23,11 +26,15 @@ class ClassService {
   }) async {
     try {
       var newClass = await _classReference.doc().id;
-
-      await _classReference.doc().set({'id': newClass, 'name': name, 'code': code, 'creator': _authService.currentUser});
+      AppUser teacher = await SecureStorage.getTeacher();
+      await _classReference.doc().set({'id': newClass, 'name': name, 'code': code, 'creator': teacher.toJson()});
       return newClass;
     } catch (e) {
       print(e.toString());
+      _dialogService.showDialog(
+        title: 'Failed',
+        description: 'Class creation failed'
+      );
     }
   }
 
@@ -58,15 +65,6 @@ class ClassService {
     try {
       List<QueryDocumentSnapshot> students =
       await _classStudentReference.where('class', isEqualTo: classId).get().then((QuerySnapshot querySnapshot) => querySnapshot.docs);
-      // await _classStudentReference.doc('FgWsrKKMHYFErHnznITA_DzQyS1bHl7GtQon3YC5F').delete().then((value) => print('SUCCESS'));
-      students.forEach((element) {
-        print(element.id);
-        print(element.data()['student']);
-        // print('${json.decode(element.data()['student'])}');
-        // var student = Student.fromData(element.data()['student']);
-        // print('STUD >>>>>> ${student.firstName}');
-      });
-      // var myStud = students.where((element) => element.data()['student'].runtimeType != 'String').toList();
       students.forEach((element) {
         print(element.data()['student']);
       });
@@ -74,7 +72,22 @@ class ClassService {
     } catch (e) {
       print(e);
     }
+  }
 
+  Future getStudentClasses() async {
+    try {
+      Student student = await SecureStorage.getStudent();
+      List<QueryDocumentSnapshot> studentClasses =
+      await _classStudentReference.where('student.code', isEqualTo: student.code).get().then((QuerySnapshot querySnapshot) => querySnapshot.docs);
+      List<String> classIDs = studentClasses.map((e) => e.data()['class'].toString()).toList();
+      List<AppClass> classes = await getClasses();
+
+      var result = classes.where((element) => classIDs.contains(element.id)).toList();
+
+      return result;
+    } catch(e) {
+      print(e);
+    }
   }
 
   void updateClass(String uid) async {
@@ -89,8 +102,28 @@ class ClassService {
 
   Future allClasses() async {
     try {
+      AppUser teacher = await SecureStorage.getTeacher();
       List<QueryDocumentSnapshot> classes = await _classReference
+      .where("creator.email", isEqualTo: teacher.email)
           .limit(10)
+          .get()
+          .then((QuerySnapshot querySnapshot) => querySnapshot.docs);
+      var mappedClass = classes.map((e) {
+        AppClass _class = AppClass.fromData(e.data());
+        _class.id = e.id;
+        return _class;
+      });
+      return mappedClass.toList();
+    } catch (e) {
+      print('Error ${e.toString()}');
+      e.message;
+    }
+  }
+
+  Future getClasses() async {
+    print('GO');
+    try {
+      List<QueryDocumentSnapshot> classes = await _classReference
           .get()
           .then((QuerySnapshot querySnapshot) => querySnapshot.docs);
       var mappedClass = classes.map((e) {

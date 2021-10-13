@@ -22,7 +22,7 @@ class View_student extends StatelessWidget {
                       margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       //padding: EdgeInsets.fromLTRB(0, 15, 10, 0),
                       child: ImageIcon(
-                          AssetImage("Assets/female_student.png")
+                          AssetImage("assets/female_student.png")
                       ),
                     ),
                   ),
@@ -93,7 +93,7 @@ class View_student extends StatelessWidget {
                         padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
                         margin:  EdgeInsets.fromLTRB(10, 5, 10, 5),
                         child: ImageIcon(
-                          AssetImage("Assets/Add_new.png"),
+                          AssetImage("assets/Add_new.png"),
                           color: Colors.black,
                         ),
                         decoration: BoxDecoration(
@@ -111,7 +111,7 @@ class View_student extends StatelessWidget {
                         width:SizeConfig.screenWidth ,
                         padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
                         child: ImageIcon(
-                          AssetImage("Assets/Home_Icon.png"),
+                          AssetImage("assets/Home_Icon.png"),
                           color: Colors.black,
                         ),
                       ),
@@ -121,7 +121,7 @@ class View_student extends StatelessWidget {
                         width:SizeConfig.screenWidth ,
                         padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
                         child: ImageIcon(
-                          AssetImage("Assets/camera.png"),
+                          AssetImage("assets/camera.png"),
                           color: Colors.black,
                         ),
                       ),
@@ -131,7 +131,7 @@ class View_student extends StatelessWidget {
                         width:SizeConfig.screenWidth ,
                         padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
                         child: ImageIcon(
-                          AssetImage("Assets/Pencil_tools.png"),
+                          AssetImage("assets/Pencil_tools.png"),
                           color: Colors.black,
                         ),
                       ),

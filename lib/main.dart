@@ -4,6 +4,17 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mobile_teacher_app/Pages/Classroom.dart';
 import 'package:mobile_teacher_app/Pages/Lesson/Lesson_Form.dart';
+import 'package:mobile_teacher_app/Pages/StudentHome.dart';
+import 'package:mobile_teacher_app/Pages/student-onboarding/AgeView.dart';
+import 'package:mobile_teacher_app/Pages/student-onboarding/ClassView.dart';
+import 'package:mobile_teacher_app/Pages/student-onboarding/FirstNameView.dart';
+import 'package:mobile_teacher_app/Pages/student-onboarding/GenderView.dart';
+import 'package:mobile_teacher_app/Pages/student-onboarding/Note_ID.dart';
+import 'package:mobile_teacher_app/Pages/student-onboarding/Registered.dart';
+import 'package:mobile_teacher_app/Pages/student-onboarding/SignIn.dart';
+import 'package:mobile_teacher_app/Pages/student-onboarding/Status.dart';
+import 'package:mobile_teacher_app/Pages/student-onboarding/SurnameView.dart';
+import 'package:mobile_teacher_app/Pages/student-pages/classes/classes.dart';
 import 'package:mobile_teacher_app/dialog_manager.dart';
 import 'package:mobile_teacher_app/services/dialog_service.dart';
 import 'Pages/Lesson/Classroom_Lesson.dart';
@@ -50,6 +61,7 @@ class MyApp extends StatelessWidget {
 
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: identity.id,
       builder: (context, child) => Navigator(
         key: locator<DialogService>().dialogNavigationKey,
@@ -63,6 +75,7 @@ class MyApp extends StatelessWidget {
         //'/': (context)=>classroom(),
         identity.id: (context) => identity(),
         status.id: (context) => status(),
+        StudentStatus.id: (context) => StudentStatus(),
         SignIn.id: (context) => SignIn(),
         SignUp.id: (context) => SignUp(),
         Home.id: (context) => Home(),
@@ -77,7 +90,19 @@ class MyApp extends StatelessWidget {
         View_student.id: (context) => View_student(),
 
         ClassRoomLesson.id: (context) => ClassRoomLesson(),
-        LessonForm.id: (context) => LessonForm()
+        LessonForm.id: (context) => LessonForm(),
+
+        StudentSignIn.id: (context) => StudentSignIn(),
+        StudentHome.id: (context) => StudentHome(),
+        Classes.id: (context) => Classes(),
+
+        FirstNameView.id: (context) => FirstNameView(),
+        SurnameView.id: (context) => SurnameView(),
+        AgeView.id: (context) => AgeView(),
+        ClassView.id: (context) => ClassView(),
+        GenderView.id: (context) => GenderView(),
+        Registered.id: (context) => Registered(),
+        Note_ID.id: (context) => Note_ID(),
 
       },
     );

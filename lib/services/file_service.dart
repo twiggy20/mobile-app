@@ -27,7 +27,6 @@ class FileService {
     if (task !=null) {
       final snapshot = await task.whenComplete(() => {});
       final url = await snapshot.ref.getDownloadURL();
-      print('DOWNLOAD LINK ::::: ${url}');
     }
   }
 
