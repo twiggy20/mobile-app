@@ -25,10 +25,12 @@ class _GenderViewState extends State<GenderView> {
   bool female = false;
   Student _student;
   String gender;
+  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
     _student = ModalRoute.of(context).settings.arguments as Student;
+    print('LVL ${_student.level}');
 
     SizeConfig().init(context);
     return Scaffold(
@@ -110,7 +112,7 @@ class _GenderViewState extends State<GenderView> {
                   fontSize: 30,
                   fontWeight: FontWeight.bold)),
           Container(
-              width: 270,
+              width: MediaQuery.of(context).size.width * 0.9,
               height: 60,
               margin: EdgeInsets.fromLTRB(0, 60, 5, 40),
               padding: EdgeInsets.fromLTRB(0, 20, 10, 10),
@@ -157,7 +159,7 @@ class _GenderViewState extends State<GenderView> {
                 ],
               ))),
           Container(
-              width: 270,
+              width: MediaQuery.of(context).size.width * 0.9,
               height: 60,
               margin: EdgeInsets.fromLTRB(0, 0, 5, 10),
               padding: EdgeInsets.fromLTRB(0, 20, 10, 10),
@@ -204,7 +206,52 @@ class _GenderViewState extends State<GenderView> {
                 ],
               ))),
           SizedBox(width: 50),
-          InkWell(
+          Padding(padding: EdgeInsets.all(8.0), child: Container(
+            child: SizedBox(
+              width: double.infinity/2,
+              height: MediaQuery.of(context).size.height * 0.06,
+              child: RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                    side: BorderSide(color: Colors.greenAccent, width: 2),
+                  ),
+                  color: Colors.greenAccent,
+                  child: loading ? SizedBox(
+                    child: CircularProgressIndicator(
+                      valueColor:
+                      AlwaysStoppedAnimation<Color>(Colors.black12),
+                    ),
+                    height: 22.0,
+                    width: 22.0,
+                  ) : Text('Register',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700)),
+                  onPressed: () async {
+                    // dynamic result = await _auth.AnonSignin();
+                    setState(() {
+                      loading = true;
+                    });
+                    _student.gender = gender;
+                    dynamic result = await _studentService.addStudent(_student);
+                    if (result == null) {
+                      print('error signing up');
+                      setState(() {
+                        loading = false;
+                      });
+
+                    } else {
+                      print(result);
+                      print('sign up successful');
+                      Navigator.pushNamedAndRemoveUntil(context, Registered.id, (_) => false);
+
+                    }
+                  }),
+            ),
+          ),),
+          /*InkWell(
             onTap: () async {
               _student.gender = gender;
               dynamic result = await _studentService.addStudent(_student);
@@ -232,7 +279,7 @@ class _GenderViewState extends State<GenderView> {
                         bottomRight: Radius.circular(30.0),
                         bottomLeft: Radius.circular(30.0)),
                     border: Border.all(color: Colors.black, width: 2))),
-          )
+          )*/
         ],
       )
     ])));

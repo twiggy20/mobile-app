@@ -14,6 +14,7 @@ import 'package:mobile_teacher_app/Pages/student-onboarding/Registered.dart';
 import 'package:mobile_teacher_app/Pages/student-onboarding/SignIn.dart';
 import 'package:mobile_teacher_app/Pages/student-onboarding/Status.dart';
 import 'package:mobile_teacher_app/Pages/student-onboarding/SurnameView.dart';
+import 'package:mobile_teacher_app/Pages/student-pages/classes/classes.dart';
 import 'package:mobile_teacher_app/dialog_manager.dart';
 import 'package:mobile_teacher_app/services/dialog_service.dart';
 import 'Pages/Lesson/Classroom_Lesson.dart';
@@ -93,6 +94,7 @@ class MyApp extends StatelessWidget {
 
         StudentSignIn.id: (context) => StudentSignIn(),
         StudentHome.id: (context) => StudentHome(),
+        Classes.id: (context) => Classes(),
 
         FirstNameView.id: (context) => FirstNameView(),
         SurnameView.id: (context) => SurnameView(),

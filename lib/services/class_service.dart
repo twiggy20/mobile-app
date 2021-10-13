@@ -65,15 +65,6 @@ class ClassService {
     try {
       List<QueryDocumentSnapshot> students =
       await _classStudentReference.where('class', isEqualTo: classId).get().then((QuerySnapshot querySnapshot) => querySnapshot.docs);
-      // await _classStudentReference.doc('FgWsrKKMHYFErHnznITA_DzQyS1bHl7GtQon3YC5F').delete().then((value) => print('SUCCESS'));
-      students.forEach((element) {
-        print(element.id);
-        print(element.data()['student']);
-        // print('${json.decode(element.data()['student'])}');
-        // var student = Student.fromData(element.data()['student']);
-        // print('STUD >>>>>> ${student.firstName}');
-      });
-      // var myStud = students.where((element) => element.data()['student'].runtimeType != 'String').toList();
       students.forEach((element) {
         print(element.data()['student']);
       });
@@ -81,7 +72,22 @@ class ClassService {
     } catch (e) {
       print(e);
     }
+  }
 
+  Future getStudentClasses() async {
+    try {
+      Student student = await SecureStorage.getStudent();
+      List<QueryDocumentSnapshot> studentClasses =
+      await _classStudentReference.where('student.code', isEqualTo: student.code).get().then((QuerySnapshot querySnapshot) => querySnapshot.docs);
+      List<String> classIDs = studentClasses.map((e) => e.data()['class'].toString()).toList();
+      List<AppClass> classes = await getClasses();
+
+      var result = classes.where((element) => classIDs.contains(element.id)).toList();
+
+      return result;
+    } catch(e) {
+      print(e);
+    }
   }
 
   void updateClass(String uid) async {
@@ -95,12 +101,29 @@ class ClassService {
   }
 
   Future allClasses() async {
-    print('GO');
     try {
       AppUser teacher = await SecureStorage.getTeacher();
       List<QueryDocumentSnapshot> classes = await _classReference
       .where("creator.email", isEqualTo: teacher.email)
           .limit(10)
+          .get()
+          .then((QuerySnapshot querySnapshot) => querySnapshot.docs);
+      var mappedClass = classes.map((e) {
+        AppClass _class = AppClass.fromData(e.data());
+        _class.id = e.id;
+        return _class;
+      });
+      return mappedClass.toList();
+    } catch (e) {
+      print('Error ${e.toString()}');
+      e.message;
+    }
+  }
+
+  Future getClasses() async {
+    print('GO');
+    try {
+      List<QueryDocumentSnapshot> classes = await _classReference
           .get()
           .then((QuerySnapshot querySnapshot) => querySnapshot.docs);
       var mappedClass = classes.map((e) {

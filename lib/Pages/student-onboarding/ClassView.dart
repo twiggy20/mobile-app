@@ -17,6 +17,8 @@ class ClassView extends StatefulWidget {
 class _ClassViewState extends State<ClassView> {
   final classController = TextEditingController();
   Student _student;
+  var level;
+  List<String> _classes = ['Basic 1', 'Basic 2', 'Basic 3'];
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +105,22 @@ class _ClassViewState extends State<ClassView> {
                   onTap: () {},
                   child: ConstrainedBox(
                     constraints: BoxConstraints.tightFor(width: 280),
-                    child: TextFormField(
+                    child: DropdownButtonFormField(
+                      decoration: InputDecoration(
+                          labelText: "Select Class",
+                          contentPadding:
+                          EdgeInsets.fromLTRB(0, 10, 0, 0)),
+                      value: level,
+                      onChanged: (val) => _student.level = val,
+                      items:
+                      _classes.map<DropdownMenuItem>((type) {
+                        return DropdownMenuItem(
+                            value: type,
+                            child:
+                            Text("${type}"));
+                      }).toList(),
+                    )
+                    /*TextFormField(
                       decoration: InputDecoration(
                         hintText: 'Touch here to select your grade',
                         hintStyle: TextStyle(
@@ -120,13 +137,13 @@ class _ClassViewState extends State<ClassView> {
                                 BorderSide(color: Colors.black, width: 2)),
                       ),
                       controller: classController,
-                    ),
+                    )*/,
                   ),
                 ),
               ),
               InkWell(
                   onTap: () {
-                    _student.level = classController.text;
+                    // _student.level = classController.text;
                     Navigator.pushNamed(context, GenderView.id,
                         arguments: _student);
                   },

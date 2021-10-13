@@ -2,7 +2,7 @@ class Student {
   String id;
   String firstName;
   String surname;
-  int age;
+  dynamic age;
   String level;
   String gender;
   String code;

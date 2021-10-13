@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_teacher_app/Pages/Lesson/Lesson_Item.dart';
+import 'package:mobile_teacher_app/models/Lesson.dart';
+import 'package:mobile_teacher_app/models/app_class.dart';
+import 'package:mobile_teacher_app/services/class_service.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
 
 
@@ -11,9 +15,17 @@ class Classes extends StatefulWidget {
 
 class _ClassesState extends State<Classes> {
 
+  AppClass _class;
+  final ClassService _classService = ClassService();
+
+
   bool isSelectedLesson = true;
   @override
   Widget build(BuildContext context) {
+
+    _class = ModalRoute.of(context).settings.arguments as AppClass;
+    print('CLAZZ ${_class.name}');
+
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
@@ -30,7 +42,7 @@ class _ClassesState extends State<Classes> {
           ),
         ),
         title:Text(
-          'Science',
+          _class.name ?? 'N/A',
           textAlign: TextAlign.center,
           style: TextStyle(
               color: Color(0xFF303D50),
@@ -140,6 +152,42 @@ class _ClassesState extends State<Classes> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.9,
+            child: FutureBuilder(
+              future: _classService.retrieveLessons(_class.id),
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                if (snapshot.hasError) {
+                  return Text('Something went wrong');
+                }
+                if (snapshot.hasData) {
+                  if (snapshot.data.length > 0) {
+                    return
+                      Container(
+                        // height: MediaQuery.of(context).size.height * 0.4,
+                        child: ListView.builder(
+                            itemCount: snapshot.data.length,
+                            itemBuilder: (context, index) {
+
+                              Lesson lesson = snapshot.data[index];
+                              return Container(
+                                child: SizedBox(
+                                  // height: MediaQuery.of(context).size.height * 0.15,
+                                  child: LessonItem(lesson: lesson,),
+                                ),
+                              );
+                            }),
+                      );
+                  } else {
+                    return Center(
+                      child: Text('No lessons have been added'),
+                    );
+                  }
+                }
+                return Center(child: CircularProgressIndicator());
+              },
+            ),
+          ),
           Text(
               'Energy',
               textAlign: TextAlign.left,

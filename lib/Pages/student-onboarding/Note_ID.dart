@@ -56,7 +56,7 @@ class _Note_IDState extends State<Note_ID> {
                   height: 50,
                   margin: EdgeInsets.fromLTRB(10, 50, 10, 10),
                   padding: EdgeInsets.fromLTRB(0, 15, 10, 10),
-                  child: Text('Submit',
+                  child: Text('Proceed',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Colors.white,

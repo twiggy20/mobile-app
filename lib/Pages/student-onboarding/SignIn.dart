@@ -50,7 +50,7 @@ class _StudentSignInState extends State<StudentSignIn> {
                   Navigator.pushNamed(context, StudentHome.id);
                 },
                 child: ConstrainedBox(
-                  constraints: BoxConstraints.tightFor(width: 280),
+                  constraints: BoxConstraints.tightFor(width: MediaQuery.of(context).size.width * 0.85),
                   child: TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Touch here to input your  ID',
@@ -130,8 +130,10 @@ class _StudentSignInState extends State<StudentSignIn> {
                       Student student =
                       await _studentService.getStudent(_userIdController.text);
                       if (student != null) {
-                        Navigator.pushNamedAndRemoveUntil(
-                            context, StudentHome.id, (_) => false);
+                        Navigator.pushNamed(
+                            context, StudentHome.id, arguments: student);
+                        /*Navigator.pushNamedAndRemoveUntil(
+                            context, StudentHome.id, (_) => false, arguments: student);*/
                         setState(() {
                           loading = false;
                         });

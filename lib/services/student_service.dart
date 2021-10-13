@@ -1,8 +1,11 @@
 
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mobile_teacher_app/locator.dart';
 import 'package:mobile_teacher_app/models/Student.dart';
 import 'package:mobile_teacher_app/services/dialog_service.dart';
+import 'package:mobile_teacher_app/services/local_storage.dart';
 import 'package:nanoid/nanoid.dart';
 
 
@@ -39,6 +42,7 @@ class StudentService {
       DocumentSnapshot documentSnapshot = await _studentReference.doc(studentId).get();
       if (documentSnapshot.exists) {
         _currentUser = Student.fromData(documentSnapshot.data());
+        await SecureStorage.store('authStudent', json.encode(_currentUser));
         return _currentUser;
       } else {
         await _dialogService.showDialog(
@@ -49,7 +53,7 @@ class StudentService {
     } catch(e) {
       await _dialogService.showDialog(
         title: 'Login Failed',
-        description: 'Invalid student code',
+        description: 'Something went wrong',
       );
       print(e);
     }

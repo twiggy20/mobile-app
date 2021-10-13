@@ -16,6 +16,8 @@ class _AgeViewState extends State<AgeView> {
 
   final ageController = TextEditingController();
   Student _student;
+  var level;
+  List<String> _classes = ['6', '7', '8'];
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +102,22 @@ class _AgeViewState extends State<AgeView> {
                       },
                       child:ConstrainedBox(
                         constraints: BoxConstraints.tightFor(width: 280),
-                        child: TextFormField(
+                        child: DropdownButtonFormField(
+                          decoration: InputDecoration(
+                              labelText: "Select Age",
+                              contentPadding:
+                              EdgeInsets.fromLTRB(0, 10, 0, 0)),
+                          value: level,
+                          onChanged: (val) => _student.age = val,
+                          items:
+                          _classes.map<DropdownMenuItem>((type) {
+                            return DropdownMenuItem(
+                                value: type,
+                                child:
+                                Text("${type}"));
+                          }).toList(),
+                        )
+                        /*TextFormField(
                           decoration:InputDecoration(
                             hintText:'Touch here to select your age',
                             hintStyle: TextStyle(color: Colors.grey,  fontSize: 20,
@@ -115,13 +132,13 @@ class _AgeViewState extends State<AgeView> {
                             ),
                           ),
                           controller: ageController,
-                        ),
+                        )*/,
                       ),
                     ),
                   ),
                   InkWell(
                       onTap: () {
-                        _student.age = int. parse(ageController.text);
+                        // _student.age = int. parse(ageController.text);
                         Navigator.pushNamed(context, ClassView.id, arguments: _student);
                       },
                       child:Container(

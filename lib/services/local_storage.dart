@@ -1,4 +1,5 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:mobile_teacher_app/models/Student.dart';
 import 'dart:convert';
 
 import 'package:mobile_teacher_app/models/User.dart';
@@ -27,6 +28,13 @@ class SecureStorage {
     var object = await storage.read(key: 'authUser');
     if (object != null) {
       return AppUser.fromData(json.decode(object));
+    }
+  }
+
+  static getStudent() async {
+    var object = await storage.read(key: 'authStudent');
+    if (object != null) {
+      return Student.fromData(json.decode(object));
     }
   }
 
