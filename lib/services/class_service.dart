@@ -4,8 +4,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mobile_teacher_app/locator.dart';
 import 'package:mobile_teacher_app/models/Lesson.dart';
 import 'package:mobile_teacher_app/models/Student.dart';
+import 'package:mobile_teacher_app/models/User.dart';
 import 'package:mobile_teacher_app/models/app_class.dart';
 import 'package:mobile_teacher_app/services/auth_service.dart';
+import 'package:mobile_teacher_app/services/dialog_service.dart';
+import 'package:mobile_teacher_app/services/local_storage.dart';
 
 class ClassService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -15,7 +18,7 @@ class ClassService {
       FirebaseFirestore.instance.collection('class_students');
   final CollectionReference _studentReference =
       FirebaseFirestore.instance.collection('students');
-  final AuthService _authService = locator<AuthService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   Future addClass({
     String name,
@@ -23,11 +26,15 @@ class ClassService {
   }) async {
     try {
       var newClass = await _classReference.doc().id;
-
-      await _classReference.doc().set({'id': newClass, 'name': name, 'code': code, 'creator': _authService.currentUser});
+      AppUser teacher = await SecureStorage.getTeacher();
+      await _classReference.doc().set({'id': newClass, 'name': name, 'code': code, 'creator': teacher.toJson()});
       return newClass;
     } catch (e) {
       print(e.toString());
+      _dialogService.showDialog(
+        title: 'Failed',
+        description: 'Class creation failed'
+      );
     }
   }
 
@@ -88,8 +95,11 @@ class ClassService {
   }
 
   Future allClasses() async {
+    print('GO');
     try {
+      AppUser teacher = await SecureStorage.getTeacher();
       List<QueryDocumentSnapshot> classes = await _classReference
+      .where("creator.email", isEqualTo: teacher.email)
           .limit(10)
           .get()
           .then((QuerySnapshot querySnapshot) => querySnapshot.docs);

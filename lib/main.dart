@@ -60,6 +60,7 @@ class MyApp extends StatelessWidget {
 
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: identity.id,
       builder: (context, child) => Navigator(
         key: locator<DialogService>().dialogNavigationKey,

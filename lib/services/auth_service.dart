@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:mobile_teacher_app/Services/user_service.dart';
 import 'package:mobile_teacher_app/locator.dart';
 import 'package:mobile_teacher_app/models/User.dart';
 import 'package:mobile_teacher_app/services/dialog_service.dart';
+import 'package:mobile_teacher_app/services/local_storage.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -74,12 +77,14 @@ class AuthService {
       return authResult.user != null;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
+        _dialogService.showDialog(title: 'Sign Up Failed', description: 'The password provided is too weak.');
         print('The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
+        _dialogService.showDialog(title: 'Sign Up Failed', description: 'The account already exists for that email.');
         print('The account already exists for that email.');
       }
     } catch (e) {
-      return e.message;
+      _dialogService.showDialog(title: 'Sign Up Failed', description: 'Something went wrong.');
     }
   }
 
@@ -92,6 +97,8 @@ class AuthService {
   Future _populateCurrentUser(User user) async {
     if (user != null) {
       _currentUser = await _userService.getUser(user.uid);
+      print('LOGGED >>>>>>>>>>>>>>>> ${_currentUser.firstName}');
+      await SecureStorage.store('authUser', json.encode(_currentUser));
     }
   }
 

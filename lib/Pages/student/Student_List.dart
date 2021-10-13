@@ -5,6 +5,8 @@ import 'package:mobile_teacher_app/Pages/student/StudentLookUp.dart';
 import 'package:mobile_teacher_app/models/Student.dart';
 import 'package:mobile_teacher_app/services/class_service.dart';
 
+import '../../locator.dart';
+
 class StudentList extends StatefulWidget {
 
   final String courseId;
@@ -19,6 +21,7 @@ class StudentList extends StatefulWidget {
 class _StudentListState extends State<StudentList> {
 
   ClassService _classService = ClassService();
+  bool loading = false;
 
 
   @override
@@ -48,7 +51,7 @@ class _StudentListState extends State<StudentList> {
                       TextButton.icon(onPressed: () => {_onButtonPressed()}, label: Text('Add Student'), icon: Icon(Icons.add), style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.black12)),),
                       SizedBox(height: 15.0,),
                       Expanded(
-                        child: GridView.builder(
+                        child: loading ? Center(child: CircularProgressIndicator()) : GridView.builder(
                           itemCount: snapshot.data.length,
                           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: MediaQuery.of(context).orientation ==
@@ -133,11 +136,17 @@ class _StudentListState extends State<StudentList> {
 
   callbackStudent(value) async {
     print('VALUE ${value}');
+    setState(() {
+      loading = true;
+    });
     var result = await _classService.addStudent(widget.courseId, value);
     if (result != null) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Student Added...')),
       );
+      setState(() {
+        loading = false;
+      });
     }
   }
 
