@@ -103,7 +103,7 @@ class _SurnameViewState extends State<SurnameView> {
                 constraints: BoxConstraints.tightFor(width: 280),
                 child: TextFormField(
                   decoration:InputDecoration(
-                    hintText:'Touch here to input your first name',
+                    hintText:'Touch to input surname',
                     hintStyle: TextStyle(color: Colors.grey,  fontSize: 20,
                         fontWeight: FontWeight.normal),
                     fillColor:  Colors.grey[100],

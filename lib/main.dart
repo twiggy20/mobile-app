@@ -14,6 +14,7 @@ import 'package:mobile_teacher_app/Pages/student-onboarding/Registered.dart';
 import 'package:mobile_teacher_app/Pages/student-onboarding/SignIn.dart';
 import 'package:mobile_teacher_app/Pages/student-onboarding/Status.dart';
 import 'package:mobile_teacher_app/Pages/student-onboarding/SurnameView.dart';
+import 'package:mobile_teacher_app/Pages/student-pages/Rewards.dart';
 import 'package:mobile_teacher_app/Pages/student-pages/classes/classes.dart';
 import 'package:mobile_teacher_app/dialog_manager.dart';
 import 'package:mobile_teacher_app/services/dialog_service.dart';
@@ -34,6 +35,7 @@ import 'package:mobile_teacher_app/Pages/View_student.dart';
 import 'package:mobile_teacher_app/Services/auth_service.dart';
 import 'package:mobile_teacher_app/Pages/Wrapper.dart';
 import 'package:mobile_teacher_app/models/User.dart';
+import 'package:mobile_teacher_app/Pages/Options.dart';
 import 'package:provider/provider.dart';
 
 import 'locator.dart';
@@ -95,7 +97,7 @@ class MyApp extends StatelessWidget {
         StudentSignIn.id: (context) => StudentSignIn(),
         StudentHome.id: (context) => StudentHome(),
         Classes.id: (context) => Classes(),
-
+        Rewards.id: (context) => Rewards(),
         FirstNameView.id: (context) => FirstNameView(),
         SurnameView.id: (context) => SurnameView(),
         AgeView.id: (context) => AgeView(),

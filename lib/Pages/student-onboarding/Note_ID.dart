@@ -56,16 +56,33 @@ class _Note_IDState extends State<Note_ID> {
                   height: 50,
                   margin: EdgeInsets.fromLTRB(10, 50, 10, 10),
                   padding: EdgeInsets.fromLTRB(0, 15, 10, 10),
-                  child: Text('Proceed',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.normal)),
                   decoration: BoxDecoration(
                       color: Colors.black,
                       borderRadius: BorderRadius.all(Radius.circular(20)),
-                      border: Border.all(color: Colors.black, width: 2))),
+                      border: Border.all(color: Colors.grey, width: 2)),
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: 30,
+                      ),
+                      Icon(Icons.add),
+                      SizedBox(
+                        width: 30,
+                      ),
+                      Text(
+                        'Join a new class',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 20,
+                            fontWeight: FontWeight.normal),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
             ])));
   }

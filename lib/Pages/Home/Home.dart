@@ -84,7 +84,7 @@ class _HomeState extends State<Home> {
                                         margin: EdgeInsets.fromLTRB(20, 0, 5, 10),
                                         padding: EdgeInsets.fromLTRB(5, 5, 10, 0),
                                         decoration: BoxDecoration(
-                                            color: Colors.greenAccent,
+                                            color: Colors.white,
                                             borderRadius: BorderRadius.only(
                                                 topRight: Radius.circular(10.0),
                                                 topLeft: Radius.circular(10.0),
@@ -117,7 +117,7 @@ class _HomeState extends State<Home> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 16.0,),
+                      //SizedBox(height: 16.0,),
                       SizedBox(
                       width: double.infinity,
                         child: GestureDetector(
@@ -146,9 +146,9 @@ class _HomeState extends State<Home> {
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                   ),
-                                  child: Center(
-                                    child: Icon(Icons.add),
-                                    // child: Image.asset("assets/icons/teacher.png",width: 28.86,height: 37,fit: BoxFit.contain,),
+                                 child: Center(
+                                    child: Icon(Icons.add, color: Colors.grey),
+                                  // child: ImageIcon(AssetImage("Assets/Add_new.png"), color: Colors.black,),
                                   ),
                                 ),
                                 // SizedBox(width:15),
@@ -210,7 +210,7 @@ class _HomeState extends State<Home> {
                                     children: [
                                       Row(
                                         children: [
-                                          Text('Science',
+                                          Text('No class history',
                                               textAlign: TextAlign.start,
                                               style: TextStyle(
                                                   color: Color(0xFF002255),
@@ -218,7 +218,7 @@ class _HomeState extends State<Home> {
                                                   fontWeight: FontWeight.bold)),
                                         ],
                                       ),
-                                      Column(
+                                     /* Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
@@ -234,10 +234,10 @@ class _HomeState extends State<Home> {
                                           fontSize: 15,
                                           fontWeight: FontWeight.w400  )),*/
                                         ],
-                                      )
+                                      )*/
                                     ],
                                   )),
-                              Container(
+                             /* Container(
                                   width: MediaQuery.of(context).size.width,
                                   height: 60,
                                   margin: EdgeInsets.fromLTRB(10, 0, 5, 10),
@@ -283,7 +283,7 @@ class _HomeState extends State<Home> {
                                         ],
                                       )
                                     ],
-                                  )),
+                                  )),*/
                             ],
                           )
                         ],

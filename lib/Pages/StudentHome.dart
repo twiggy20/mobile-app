@@ -9,6 +9,7 @@ import 'package:mobile_teacher_app/locator.dart';
 import 'package:mobile_teacher_app/models/User.dart';
 import 'package:mobile_teacher_app/models/app_class.dart';
 import 'package:mobile_teacher_app/services/class_service.dart';
+import 'package:mobile_teacher_app/Pages/Options.dart';
 import 'package:mobile_teacher_app/services/student_service.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
 
@@ -42,9 +43,11 @@ class _StudentHomeState extends State<StudentHome> {
           padding: const EdgeInsets.all(15.0),
           // ignore: deprecated_member_use
           child: FlatButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, Options.id);
+            },
             child: Container(
-              //  child: Image.asset("assets/icons/options.png ",width:36,height:26,fit: BoxFit.contain,),
+              child: Icon(Icons.arrow_drop_down),
             ),
           ),
         ),
@@ -52,7 +55,6 @@ class _StudentHomeState extends State<StudentHome> {
           'Welcome',
           textAlign: TextAlign.center,
           style: TextStyle(
-            // color: Color(0xFF303D50),
               fontSize: 20,
               fontWeight: FontWeight.w900),
         ),
@@ -76,9 +78,9 @@ class _StudentHomeState extends State<StudentHome> {
                 SizedBox(
                   height: 20,
                 ),
-                InkWell(
+                GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, Awards.id);
+                    Navigator.pushNamed(context, Rewards.id);
                   },
                   child: Padding(
                     padding: EdgeInsets.only(left: 10, right: 10),
@@ -207,7 +209,7 @@ class _StudentHomeState extends State<StudentHome> {
                 SizedBox(
                   height: 7,
                 ),
-                InkWell(
+                GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(context, JoinClassID.id);
                   },
@@ -228,17 +230,11 @@ class _StudentHomeState extends State<StudentHome> {
                               width: 30,
                             ),
                             Icon(Icons.add),
-                            /*Image.asset(
-                              "assets/icons/add_new.png",
-                              fit: BoxFit.contain,
-                              width: 34.64,
-                              height: 39.87,
-                            ),*/
                             SizedBox(
                               width: 30,
                             ),
                             Text(
-                              'Add new class',
+                              'Join a new class',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.grey,

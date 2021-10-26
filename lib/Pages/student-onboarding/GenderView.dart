@@ -150,12 +150,7 @@ class _GenderViewState extends State<GenderView> {
                         fontWeight: FontWeight.w400,
                         fontFamily: "Roboto",
                       )),
-                  Image.asset(
-                    "assets/icons/Male_asset.png",
-                    width: 28.86,
-                    height: 37,
-                    fit: BoxFit.contain,
-                  ),
+
                 ],
               ))),
           Container(
@@ -197,12 +192,7 @@ class _GenderViewState extends State<GenderView> {
                         fontWeight: FontWeight.w400,
                         fontFamily: "Roboto",
                       )),
-                  Image.asset(
-                    "assets/icons/Female_asset.png",
-                    width: 28.86,
-                    height: 37,
-                    fit: BoxFit.contain,
-                  ),
+
                 ],
               ))),
           SizedBox(width: 50),

@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_teacher_app/utils/size_config.dart';
-class Awards extends StatefulWidget {
-  static const String id = "awards";
+class Rewards extends StatefulWidget {
+  static const String id = "Rewards";
 
   @override
-  _AwardsState createState() => _AwardsState();
+  _RewardsState createState() => _RewardsState();
 }
 
-class _AwardsState extends State<Awards> {
+class _RewardsState extends State<Rewards> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -22,7 +22,7 @@ class _AwardsState extends State<Awards> {
           child: FlatButton(
             onPressed: (){},
             child: Container(
-              child: Image.asset("assets/icons/Vector.png",width:10,height:30,fit: BoxFit.contain,),
+              child: Image.asset("Assets/icons/Vector.png",width:10,height:30,fit: BoxFit.contain,),
             ),
           ),
         ),
@@ -30,8 +30,8 @@ class _AwardsState extends State<Awards> {
             'Rewards',
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: Color(0xFF303D50),
-                fontSize: 18,
+                color:Color(0xFFF2C94C),
+                fontSize: 20,
                 fontWeight: FontWeight.w900
             ),
         ),
@@ -41,7 +41,7 @@ class _AwardsState extends State<Awards> {
           FlatButton(
             onPressed: (){},
             child: Container(
-              child: Image.asset("assets/icons/Group (7).png",width:18,height:18,fit: BoxFit.contain,),
+              child: Icon(Icons.notifications),
             ),
           )
         ],
@@ -79,7 +79,7 @@ class _AwardsState extends State<Awards> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.asset("assets/icons/Group (6).png",width:43.82,height:47.39 ,fit: BoxFit.contain,),
+                  Image.asset("Assets/icons/Group (6).png",width:43.82,height:47.39 ,fit: BoxFit.contain,),
                   Text(
                     "Creative",
                     textAlign: TextAlign.center,

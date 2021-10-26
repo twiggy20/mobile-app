@@ -74,11 +74,13 @@ class _SignUpState extends State<SignUp> {
                                 color: Colors.white,
                               ))),
                     ),
-                    Expanded(
-                      child: Container(
-                          width: SizeConfig.screenWidth,
-                          height: 25,
-                          padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+
+
+                          Expanded(
+                              child: Container(
+                                  width: SizeConfig.screenWidth,
+                                  height: 25,
+                          //padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                           child: Text('Sign in?',
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -93,6 +95,7 @@ class _SignUpState extends State<SignUp> {
                                 color: Colors.white,
                               ))),
                     )
+
                   ],
                 ),
                 SizedBox(
@@ -296,7 +299,7 @@ class _SignUpState extends State<SignUp> {
                   dynamic result = await _auth.signUpWithEmail(email: emailController.text, password: passwordController.text,
                       firstName: firstController.text, lastName: lastController.text);
                   if (result == null) {
-                    print('error signing in');
+                    print('error signing up');
                     setState(() {
                       loading = false;
                     });

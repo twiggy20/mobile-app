@@ -47,13 +47,13 @@ class _StudentSignInState extends State<StudentSignIn> {
             SingleChildScrollView(
               child: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, StudentHome.id);
+                 // Navigator.pushNamed(context, StudentHome.id);
                 },
                 child: ConstrainedBox(
                   constraints: BoxConstraints.tightFor(width: MediaQuery.of(context).size.width * 0.85),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      hintText: 'Touch here to input your  ID',
+                      hintText: 'Touch to input your ID',
                       hintStyle: TextStyle(
                           color: Colors.grey,
                           fontSize: 20,
